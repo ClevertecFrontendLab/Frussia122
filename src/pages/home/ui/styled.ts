@@ -8,9 +8,9 @@ export const Wrapper = styled.div<StyleProps>`
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-  
+    padding-bottom: 190px;
 
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 600px) {
         padding-bottom: 225px;
     }
     @media screen and (min-height: 1401px) {
