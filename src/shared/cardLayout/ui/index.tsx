@@ -1,37 +1,37 @@
 import { CardWrapper, Header, Content, Footer, FooterItem, FooterItemText } from './styled';
 import { Props } from '../models/types';
 
-export const CardLayout: React.FC<Props> = ({ data, customStyle }) => {
+export const CardLayout: React.FC<Props> = ({ data, customstyle }) => {
   const { header, content, footer, contentHtml } = data;
 
   const {
-    headerColor = 'black',
-    footerColor = 'black',
-    contentColor = 'black',
-    headerFontSize = 16,
-    footerFontSize = 16,
-    contentFontSize = 16,
-    headerFontWeight = 400,
-    contentFontWeight = 400,
-    footerFontWeight = 400
-  } = customStyle || {};
+    headercolor = 'black',
+    footercolor = 'black',
+    contentcolor = 'black',
+    headerfontsize = 16,
+    footerfontsize = 16,
+    contentfontsize = 16,
+    headerfontweight = 400,
+    contentfontweight = 400,
+    footerfontweight = 400
+  } = customstyle || {};
 
   return (
     <CardWrapper style={footer? {padding: '12px 0 12px 0'} : {padding: '24px'}}>
       {header && (
         <Header
-          headerColor={headerColor}
-          headerFontWeight={headerFontWeight}
-          headerFontSize={headerFontSize}
+          headercolor={headercolor}
+          headerfontweight={headerfontweight}
+          headerfontsize={headerfontsize}
         >
           {header}
         </Header>
       )}
       {content && (
         <Content
-          contentColor={contentColor}
-          contentFontWeight={contentFontWeight}
-          contentFontSize={contentFontSize}
+          contentcolor={contentcolor}
+          contentfontweight={contentfontweight}
+          contentfontsize={contentfontsize}
         >
           {contentHtml ? (
             <div dangerouslySetInnerHTML={{ __html: content }} />
@@ -45,9 +45,9 @@ export const CardLayout: React.FC<Props> = ({ data, customStyle }) => {
           {footer.map(item => (
             <FooterItem 
                 key={item.id}
-                footerColor={footerColor} 
-                footerFontWeight={footerFontWeight} 
-                footerFontSize={footerFontSize}>
+                footercolor={footercolor} 
+                footerfontweight={footerfontweight} 
+                footerfontsize={footerfontsize}>
               {item.icon}
               <FooterItemText>{item.text}</FooterItemText>
             </FooterItem>

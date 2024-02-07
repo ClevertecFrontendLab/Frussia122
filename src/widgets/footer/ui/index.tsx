@@ -11,11 +11,11 @@ export const MainFooter = () => {
         <ReviewLink href="" >Смотреть отзывы</ReviewLink>
         <CardLayout 
             data={FooterCard}
-            customStyle={{
-                headerColor: '#2f54eb',
-                headerFontSize: 16,
-                contentColor: '#8c8c8c',
-                footerFontSize: 14,
+            customstyle={{
+                headercolor: '#2f54eb',
+                headerfontsize: 16,
+                contentcolor: '#8c8c8c',
+                footerfontsize: 14,
             }}
             />
     </Wrapper>

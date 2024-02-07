@@ -21,9 +21,9 @@ export const CardWrapper = styled.div`
 `
 
 export const Header = styled.div<HeaderProps>`
-    color: ${props => props.headerColor};
-    font-size: ${props => props.headerFontSize}px;
-    font-weight: ${props => props.headerFontWeight};
+    color: ${props => props.headercolor};
+    font-size: ${props => props.headerfontsize}px;
+    font-weight: ${props => props.headerfontweight};
 
     @media screen and (max-width: 834px) {
         padding: 0 24px;
@@ -33,9 +33,9 @@ export const Header = styled.div<HeaderProps>`
 
 export const Content = styled.div<ContentProps>`
     
-    color: ${props => props.contentColor};
-    font-size: ${props => props.contentFontSize}px;
-    font-weight: ${props => props.contentFontWeight};
+    color: ${props => props.contentcolor};
+    font-size: ${props => props.contentfontsize}px;
+    font-weight: ${props => props.contentfontweight};
 `
 
 export const Footer = styled.ul`
@@ -55,9 +55,9 @@ export const FooterItem = styled.li<FooterProps>`
     display: flex;
     align-items: center;
     list-style: none;
-    color: ${props => props.footerColor};
-    font-size: ${props => props.footerFontSize}px;
-    font-weight: ${props => props.footerFontWeight};
+    color: ${props => props.footercolor};
+    font-size: ${props => props.footerfontsize}px;
+    font-weight: ${props => props.footerfontweight};
     cursor: pointer;
     margin-right: 11px;
 `

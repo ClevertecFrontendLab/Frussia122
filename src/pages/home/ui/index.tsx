@@ -16,9 +16,9 @@ export const MainPage: React.FC = () => {
                         <Col span={24}>
                             <CardLayout
                                 data={testData[0]}
-                                customStyle={{
-                                    contentColor: '#061178',
-                                    contentFontWeight: 500,
+                                customstyle={{
+                                    contentcolor: '#061178',
+                                    contentfontweight: 500,
                                 }}
                             />
                         </Col>
@@ -27,9 +27,9 @@ export const MainPage: React.FC = () => {
                         <Col span={24}>
                             <CardLayout
                                 data={testData[1]}
-                                customStyle={{
-                                    contentFontWeight: 500,
-                                    contentFontSize: 20,
+                                customstyle={{
+                                    contentfontweight: 500,
+                                    contentfontsize: 20,
                                 }}
                             />
                         </Col>
@@ -39,9 +39,9 @@ export const MainPage: React.FC = () => {
                             <Col key={index} xs={24} sm={24} md={8} lg={8} xl={8}>
                                 <CardLayout
                                     data={data}
-                                    customStyle={{
-                                        footerColor: '#2f54eb',
-                                        footerFontSize: 14,
+                                    customstyle={{
+                                        footercolor: '#2f54eb',
+                                        footerfontsize: 14,
                                     }}
                                 />
                             </Col>

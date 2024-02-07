@@ -2,34 +2,34 @@ import { Data } from "@pages/home/models/types";
 
 export type Props = {
     data: Data;
-    customStyle?: Customize,
+    customstyle?: Customize,
 }
 export type Customize = {
-    headerColor?: string,
-    footerColor?:string,
-    contentColor?:string,
-    headerFontSize?: number,
-    footerFontSize?: number,
-    contentFontSize?: number,
-    headerFontWeight?: number,
-    contentFontWeight?: number, 
-    footerFontWeight?: number ,
+    headercolor?: string,
+    footercolor?:string,
+    contentcolor?:string,
+    headerfontsize?: number,
+    footerfontsize?: number,
+    contentfontsize?: number,
+    headerfontweight?: number,
+    contentfontweight?: number, 
+    footerfontweight?: number ,
 }
 
 export type FooterProps = {
-    footerColor?:string,
-    footerFontSize?: number,
-    footerFontWeight?: number,
+    footercolor?:string,
+    footerfontsize?: number,
+    footerfontweight?: number,
 }
 
 export type ContentProps = {
-    contentColor?:string,
-    contentFontSize?: number,
-    contentFontWeight?: number,
+    contentcolor?:string,
+    contentfontsize?: number,
+    contentfontweight?: number,
 }
 
 export type HeaderProps = {
-    headerColor?:string,
-    headerFontSize?: number,
-    headerFontWeight?: number,
+    headercolor?:string,
+    headerfontsize?: number,
+    headerfontweight?: number,
 }
