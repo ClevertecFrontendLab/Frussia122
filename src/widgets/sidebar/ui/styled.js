@@ -7,16 +7,16 @@ export const Wrapper = styled.div`
     
 `
 export const SideWrapper = styled(Sider)`
-background: white;
-    
-    height: 100%;
+    background: white;
     z-index: 3;
     height: 100vh;
     
     @media screen and (max-width: 600px) {
         position: fixed !important;
+        top:0;
+        left:0;
         width: auto !important;
-        height: 100%;
+        
         min-width: auto !important;
         max-width: auto !important;
     }

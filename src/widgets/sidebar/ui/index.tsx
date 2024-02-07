@@ -27,7 +27,7 @@ export const SideBar: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []); 
 
-  const collapsedWidth = screenWidth <= 600 ? "0" : "80";
+  const collapsedWidth = screenWidth <= 700 ? "0" : "80";
 
 
   return (
@@ -45,7 +45,10 @@ export const SideBar: React.FC = () => {
         </Nav>
        </Wrapper>
         <Logout collapsed={collapsed} screenWidth={screenWidth}/>
-        <SidebarToggle collapsed={collapsed} setCollapsed={setCollapsed}/>
+        <SidebarToggle 
+          collapsed={collapsed} 
+          setCollapsed={setCollapsed} 
+          typeTest={screenWidth > 600 ? 'sider-switch' : 'sider-switch-mobile'}/>
       </SideWrapper>
       
       

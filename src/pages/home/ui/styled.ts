@@ -8,11 +8,15 @@ export const Wrapper = styled.div<StyleProps>`
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    padding-bottom: 210px;
+  
 
     @media screen and (max-width: 400px) {
         padding-bottom: 225px;
     }
+    @media screen and (min-height: 1401px) {
+        height: 90vh;
+    }
+
     
 `  
 export const Content = styled.div`

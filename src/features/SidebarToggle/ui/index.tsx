@@ -11,14 +11,15 @@ import {
 
 export const SidebarToggle: React.FC<Props> = ({
   collapsed,
-  setCollapsed
+  setCollapsed,
+  typeTest
 }) => {
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
   };
   return (
-    <Button onClick={toggleCollapsed} data-test-id='sider-switch sider-switch-mobile' >
+    <Button onClick={toggleCollapsed} data-test-id={typeTest}>
        {collapsed ? <MenuFoldOutlined /> : <MenuUnfoldOutlined /> }
     </Button>
   )
