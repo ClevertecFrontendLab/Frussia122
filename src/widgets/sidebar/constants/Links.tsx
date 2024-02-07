@@ -1,28 +1,31 @@
 import  { NavLinks }  from "../models/types"
 import {
-    UploadOutlined,
+    CalendarFilled,
+    HeartFilled,
+    TrophyFilled,
+    IdcardOutlined
   } from '@ant-design/icons';
 
 
 export const Links: NavLinks = [
      {
          label: 'Календарь',
-         icon: <UploadOutlined  style={{'color': '#061178'}}/>,
+         icon: <CalendarFilled  style={{'color': '#061178'}}/>,
          key: '1',
      },
      {
-        label: 'Календарь',
-        icon: <UploadOutlined style={{'color': '#061178'}}/>,
+        label: 'Тренировки',
+        icon: <HeartFilled style={{'color': '#061178'}}/>,
         key: '2',
     }, 
     {
-        label: 'Календарь',
-        icon: <UploadOutlined style={{'color': '#061178'}}/>,
+        label: 'Достижения',
+        icon: <TrophyFilled style={{'color': '#061178'}}/>,
         key: '3',
     },
     {
-        label: 'Календарь',
-        icon: <UploadOutlined style={{'color': '#061178'}}/>,
+        label: 'Профиль',
+        icon: <IdcardOutlined style={{'color': '#061178'}}/>,
         key: '4',
     },
 ]

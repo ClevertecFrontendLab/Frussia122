@@ -18,7 +18,7 @@ export const SidebarToggle: React.FC<Props> = ({
     setCollapsed(!collapsed);
   };
   return (
-    <Button onClick={toggleCollapsed}>
+    <Button onClick={toggleCollapsed} data-test-id='sider-switch sider-switch-mobile' >
        {collapsed ? <MenuFoldOutlined /> : <MenuUnfoldOutlined /> }
     </Button>
   )

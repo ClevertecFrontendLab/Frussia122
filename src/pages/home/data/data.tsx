@@ -1,6 +1,8 @@
 import { Data } from "../models/types"
 import {
-    UploadOutlined,
+    HeartFilled,
+    IdcardOutlined,
+    CalendarFilled
   } from '@ant-design/icons';
 
 export const testData: Data[] = [
@@ -21,29 +23,29 @@ export const testData: Data[] = [
             {
                 id: 'asdasd76',
                 text: 'Тренировки',
-                icon: <UploadOutlined />
+                icon: <HeartFilled />
             },
         ]
     },
     {
         id: 'asdasd2316',
-        header: "Расписать тренировки",
+        header: "Назначить календарь",
         footer: [
             {
                 id: 'asdasdasdasd',
-                text: 'Тренировки',
-                icon: <UploadOutlined />
+                text: 'Календарь',
+                icon: <CalendarFilled />
             }
         ]
     },
     {
         id: 'asdas271y23781',
-        header: "Расписать тренировки",
+        header: "Заполнить профиль",
         footer: [
             {
                 id: 'asdashasdasdd',
-                text: 'Тренировки',
-                icon: <UploadOutlined />
+                text: 'Профиль',
+                icon: <IdcardOutlined />
             }
         ]
     }

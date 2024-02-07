@@ -3,10 +3,12 @@ import { Layout, Menu } from 'antd';
 const { Sider } = Layout;
 
 
-
+export const Wrapper = styled.div`
+    
+`
 export const SideWrapper = styled(Sider)`
-    background: white;
- 
+background: white;
+    
     height: 100%;
     z-index: 3;
     height: 100vh;

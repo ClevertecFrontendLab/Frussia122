@@ -29,7 +29,7 @@ export const HeaderTitle = styled.h1`
     @media screen and (max-width: 400px) {
         font: 500 20px / 130% "Inter", sans-serif;
         max-width: 280px;
-        margin-top: 14px;
+        margin-top: 27px;
     }
     
     

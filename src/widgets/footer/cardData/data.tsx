@@ -1,5 +1,6 @@
 import {
-    UploadOutlined,
+    AndroidFilled,
+    AppleFilled
   } from '@ant-design/icons';
 import { Data } from '@pages/home/models/types';
 
@@ -9,13 +10,13 @@ export const FooterCard: Data = {
     footer: [
         {
             id: 'asdasd76',
-            text: 'Тренировки',
-            icon: <UploadOutlined />
+            text: 'Android OS',
+            icon: <AndroidFilled />
         },
         {
             id: 'asdasd76',
-            text: 'Тренировки',
-            icon: <UploadOutlined />
+            text: 'Apple iOS',
+            icon: <AppleFilled />
         },
     ]
 }

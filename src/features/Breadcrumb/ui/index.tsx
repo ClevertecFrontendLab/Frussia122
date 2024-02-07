@@ -9,7 +9,7 @@ export const Breadcrumbs = () => {
   return (
     <Wrapper>
         <BreadLink>Главная</BreadLink>
-        <BreadLink>Привет</BreadLink>
+        
     </Wrapper>
   )
 }

@@ -7,11 +7,13 @@ import {
   Logo,
   Nav,
   Title,
-  NavItem
+  NavItem,
+  Wrapper
 } from './styled';
 import { Links } from '../constants/Links';
 import { SidebarToggle } from '@features/SidebarToggle';
 import { Affix } from 'antd';
+import { Logout } from '@features/Logout';
 
 export const SideBar: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -31,7 +33,8 @@ export const SideBar: React.FC = () => {
   return (
     <Affix offsetTop={0}>
       <SideWrapper trigger={null} collapsible collapsedWidth={collapsedWidth} collapsed={collapsed}>
-        <Logo src={collapsed && screenWidth > 600 ? smallLogo : bigLogo} />
+       <Wrapper>
+       <Logo src={collapsed && screenWidth > 600 ? smallLogo : bigLogo} />
         <Nav mode={'inline'} defaultSelectedKeys={['1']}>
           {Links.map(item => (
             <NavItem key={item.key}>
@@ -40,8 +43,12 @@ export const SideBar: React.FC = () => {
             </NavItem>
           ))}
         </Nav>
+       </Wrapper>
+        <Logout collapsed={collapsed} screenWidth={screenWidth}/>
         <SidebarToggle collapsed={collapsed} setCollapsed={setCollapsed}/>
       </SideWrapper>
+      
+      
     </Affix>
       
 
