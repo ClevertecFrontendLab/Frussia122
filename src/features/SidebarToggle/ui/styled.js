@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Button = styled.div`
    position: absolute;
    top: 50%;
+   z-index: 2;
    right: -20px;
    cursor: pointer;
    background-color: white;

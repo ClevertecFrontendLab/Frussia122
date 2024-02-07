@@ -31,7 +31,7 @@ export const Footer = styled.ul`
     align-items: center;
     list-style: none;
     border-top: 1px solid #f0f0f0;
-    padding: 12px 0 0 0 ;
+    padding: 12px 12px 0 12px ;
     margin-top: 12px;
     justify-content: center;
     width: 100%
@@ -45,6 +45,7 @@ export const FooterItem = styled.li<FooterProps>`
     font-size: ${props => props.footerFontSize}px;
     font-weight: ${props => props.footerFontWeight};
     cursor: pointer;
+    margin-right: 11px;
 `
 export const FooterItemText = styled.span`
     margin-left: 8px;

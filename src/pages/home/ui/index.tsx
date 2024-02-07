@@ -6,9 +6,11 @@ import background from '../images/Main page_light.png'
 import { Col, Row } from 'antd';
 import { CardLayout } from '@shared/cardLayout';
 import { testData } from '../data/data';
+import { MainFooter } from '@widgets/footer';
 export const MainPage: React.FC = () => {
 
     return (
+           <>
             <Wrapper backgroundImg={background}>
                 <Content>
                     <Row>
@@ -17,6 +19,7 @@ export const MainPage: React.FC = () => {
                                 data={testData[0]} 
                                 customStyle={{
                                     contentColor: '#061178',
+                                    contentFontWeight: 500,
                                 }}
                                 />
                         </Col>
@@ -59,7 +62,11 @@ export const MainPage: React.FC = () => {
                             }}/>
                         </Col>
                     </Row>
-                </Content>
+                </Content>     
+                <MainFooter />           
             </Wrapper>
+
+           
+           </>
     );
 };

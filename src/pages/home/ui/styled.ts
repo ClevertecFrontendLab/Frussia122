@@ -3,6 +3,7 @@ import { StyleProps } from "../models/types";
 
 export const Wrapper = styled.div<StyleProps>`
     height: 100%;
+    position: relative;
     background-image: url("${props => props.backgroundImg}");
     background-repeat: no-repeat;
     background-size: cover;
