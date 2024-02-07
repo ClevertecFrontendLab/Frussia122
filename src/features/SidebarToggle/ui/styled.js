@@ -30,6 +30,24 @@ export const Button = styled.div`
     border-left: 20px solid white;
     border-top: 15px solid transparent; 
     top: -15px;
+}
 
+@media screen and (max-width: 600px) {
+    top: 50px;
+    height: 32px;
+    width: 32px;
+    
+    right: -31px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    &::after{
+        border-left: 30px solid white;
+        border-top: 15px solid transparent; 
+        top: -15px;
+    }
+    &::before {
+        border-left: 30px solid white; 
+        border-bottom: 15px solid transparent; 
+        bottom: -14px;
+    }
 }
 `

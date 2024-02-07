@@ -13,8 +13,8 @@ export const MainFooter = () => {
             data={FooterCard}
             customStyle={{
                 headerColor: '#2f54eb',
-                contentColor: '##8c8c8c',
-                footerColor: 'black',
+                headerFontSize: 16,
+                contentColor: '#8c8c8c',
                 footerFontSize: 14,
             }}
             />

@@ -1,4 +1,4 @@
-import { Wrapper, Header, Content, Footer, FooterItem, FooterItemText } from './styled';
+import { CardWrapper, Header, Content, Footer, FooterItem, FooterItemText } from './styled';
 import { Props } from '../models/types';
 
 export const CardLayout: React.FC<Props> = ({ data, customStyle }) => {
@@ -17,7 +17,7 @@ export const CardLayout: React.FC<Props> = ({ data, customStyle }) => {
   } = customStyle || {};
 
   return (
-    <Wrapper style={footer? {padding: '12px 0 12px 0'} : {padding: '24px'}}>
+    <CardWrapper style={footer? {padding: '12px 0 12px 0'} : {padding: '24px'}}>
       {header && (
         <Header
           headerColor={headerColor}
@@ -54,6 +54,6 @@ export const CardLayout: React.FC<Props> = ({ data, customStyle }) => {
           ))}
         </Footer>
       )}
-    </Wrapper>
+    </CardWrapper>
   );
 };
