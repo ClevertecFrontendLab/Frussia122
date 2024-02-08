@@ -9,7 +9,7 @@ export const CardWrapper = styled.div`
     margin-top: 10px;
     padding: 24px 0 24px 0;
     align-items: center;
-    border-radius: 6px;
+    border-radius: 2px;
 
 
     @media screen and (max-width: 800px) {
