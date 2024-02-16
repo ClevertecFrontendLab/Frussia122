@@ -1,4 +1,4 @@
-export const HOMEPAGE = '/';
+export const HOMEPAGE = '/main';
 export const AUTH = '/auth';
 export const REGISTRATION = 'registration';
 export const RESULTS = '/result';

@@ -13,25 +13,19 @@ const initialState: UserState = {
         message: '',
     },
     loading: false,
-    rememberMe: false,
+    checked: false,
 }
 
 const userSlice = createSlice({
     name: 'user',
     initialState: initialState,
     reducers: {
-      clearErrors: (state) => {
+      clearUserErrors: (state) => {
         state.errors = {
           statusCode: 0,
           error: "",
           message: "",
         };
-      },
-      clearAccessToken: (state) => {
-        state.userToken.accessToken = "";
-      },
-      toggleRememberMe: (state) => {
-        state.rememberMe = !state.rememberMe;
       },
     },
     extraReducers: (builder) => {
@@ -50,15 +44,12 @@ const userSlice = createSlice({
           }
           state.loading = false;
         })
-        .addCase(loginUser.fulfilled, (state, action) => {
+        .addCase(loginUser.fulfilled, (state) => {
           state.errors = {
-            statusCode: 0,
+            statusCode: 200,
             error: '',
             message: '',
           };
-          if(action.payload.accessToken) {
-            localStorage.setItem('accessToken', action.payload.accessToken)
-          }
           state.loading = false;
         })
         .addCase(registerUser.rejected, (state, action) => {
@@ -74,5 +65,5 @@ const userSlice = createSlice({
     },
   });
 
-export const { clearErrors, clearAccessToken, toggleRememberMe } = userSlice.actions;
+export const { clearUserErrors } = userSlice.actions;
 export default userSlice.reducer;

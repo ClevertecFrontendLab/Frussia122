@@ -1,4 +1,4 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
 import { push } from 'redux-first-history';
 import { CodeVerification } from './models/types';
 
@@ -8,31 +8,29 @@ import {
     ERROR_CHECK_EMAIL
  } from '@shared/Constants/Routes/ROUTE';
 
+ import { CONFIRM_EMAIL_URL } from '@shared/Constants/Api/API';
+import axios from 'axios';
+
 export const codeVerification = createAsyncThunk<CodeVerification, { email: string; code: string }>(
     'recover/codeVerification',
-    async ({ email, code }, { rejectWithValue, dispatch }) => {
+    async ({ email, code }, {dispatch, rejectWithValue}) => {
         try {
-            console.log()
-            const response = await fetch('https://marathon-api.clevertec.ru/auth/confirm-email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                credentials: 'include',
-                body: JSON.stringify({ email, code }),
+         
+            await new Promise(resolve => setTimeout(resolve, 200));
+
+            const response = await axios.post(CONFIRM_EMAIL_URL, { email, code }, {
+                withCredentials: true
             });
 
-            if (!response.ok) {
-                const error = await response.json();
-
-                return rejectWithValue(error); 
-            }
-            dispatch(push(`${AUTH}/${CHANGE_PASSWORD}`))
+            dispatch(push(`${AUTH}/${CHANGE_PASSWORD}`));
             sessionStorage.setItem('stage', '2');
-            return response.json();
-            
+
+            return response.data;
         } catch (error: any) {
-            return (error);
+            // Add a 0.4 second delay before rejecting the action
+            await new Promise(resolve => setTimeout(resolve, 200));
+
+            return rejectWithValue(error.response.data);
         }
     }
 );

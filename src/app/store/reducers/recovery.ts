@@ -1,5 +1,5 @@
 import { createSlice} from "@reduxjs/toolkit";
-import { recoverPassword } from "../actions/recoverPassword";
+import { checkEMail } from "../actions/checkEmail";
 import { UserRecoverPass, errorType } from "../actions/models/types";
 import { codeVerification } from "../actions/codeVerification";
 import { ChangePassword } from "../actions/changePassword";
@@ -7,7 +7,7 @@ import { ChangePassword } from "../actions/changePassword";
 const initialState: UserRecoverPass = {
     email: '',
     errors: {
-        statusCode: 200,
+        statusCode: 0,
         error: '',
         message: '',
     },
@@ -18,10 +18,18 @@ const initialState: UserRecoverPass = {
 const recoverSlice = createSlice({
     name: 'recover',
     initialState: initialState,
-    reducers: {},
+    reducers: {
+        clearRecoveryErrors: (state) => {
+            state.errors = {
+              statusCode: 0,
+              error: "",
+              message: "",
+            };
+          },
+    },
     extraReducers: (builder) => {
         builder
-        .addCase(recoverPassword.pending, (state) => {
+        .addCase(checkEMail.pending, (state) => {
             state.loading = true
         })
         .addCase(codeVerification.pending, (state) => {
@@ -30,7 +38,8 @@ const recoverSlice = createSlice({
         .addCase(ChangePassword.pending, (state) => {
             state.loading = true
         })
-        .addCase(recoverPassword.fulfilled, (state, action) => {
+        .addCase(checkEMail.fulfilled, (state, action) => {
+
             state.errors = {
                 statusCode: 200,
                 error: '',
@@ -50,7 +59,6 @@ const recoverSlice = createSlice({
               };
             state.message = action.payload.message;
             state.loading = false
-            sessionStorage.setItem('stage', '3');
         })
         .addCase(codeVerification.fulfilled, (state, action) => {
             state.errors = {
@@ -62,8 +70,9 @@ const recoverSlice = createSlice({
             state.loading = false
             sessionStorage.setItem('stage', '2');
         })
-        .addCase(recoverPassword.rejected, (state, action) => {
+        .addCase(checkEMail.rejected, (state, action) => {
             state.errors = action.payload as errorType;
+
             state.loading = false
             state.message = '';
         })
@@ -79,5 +88,7 @@ const recoverSlice = createSlice({
         })
     }
 })
+
+export const { clearRecoveryErrors, } = recoverSlice.actions;
 
 export default recoverSlice.reducer;

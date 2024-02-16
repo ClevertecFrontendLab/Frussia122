@@ -1,7 +1,7 @@
 import { AuthLayout } from "@pages/authLayout";
 import { MainPage } from "@pages/home";
 import { Layout } from "@pages/Layout";
-import {  Route, Routes } from 'react-router-dom';
+import {  Navigate, Route, Routes } from 'react-router-dom';
 import { 
     HOMEPAGE,
     AUTH,
@@ -14,7 +14,8 @@ import {
     ERROR_CHECK_EMAIL,
     CONFIRM_EMAIL,
     CHANGE_PASSWORD,
-    SUCCESS_CHANGE_PASSWORD
+    SUCCESS_CHANGE_PASSWORD,
+    ERROR_CHANGE_PASSWORD
  } from "@shared/Constants/Routes/ROUTE";
 import { Registration } from "@pages/registration";
 import { Auth } from "@pages/auth";
@@ -24,13 +25,17 @@ import { Stage1, Stage2 } from "@pages/passRecover";
 
 const routes = [
     {
-        path: HOMEPAGE,
+        path: "/",
         element: <Layout />,
         children: [
             {
-                path: '/',
+                path: HOMEPAGE,
                 element: <MainPage />
-            }
+            },
+            {
+              path: '/',
+              element: <Navigate to={HOMEPAGE} replace />,
+          }
         ]
     },
     {
@@ -87,8 +92,8 @@ const routes = [
       element: <AlertsLayout alert={AlertsData[5]} />,
     },
     {
-      path: ERROR_CHECK_EMAIL,
-      element: <AlertsLayout alert={AlertsData[5]} />,
+      path: ERROR_CHANGE_PASSWORD,
+      element: <AlertsLayout alert={AlertsData[7]} />,
     },
     {
       path: SUCCESS_CHANGE_PASSWORD,

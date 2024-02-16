@@ -38,6 +38,7 @@ export const LoginInputs:React.FC<Props> = ({formState, setFormState}) => {
       <Row name="password">
         <FInput.Password 
         placeholder='Пароль'
+        required
         value={formState.password}
         onChange={(e) => setFormState({ ...formState, password: e.target.value})}
         />

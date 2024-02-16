@@ -1,27 +1,28 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 import { UserState } from './models/types';
+import { LOGIN_URL } from '@shared/Constants/Api/API';
 
-export const loginUser = createAsyncThunk<UserState, { email: string; password: string }>(
+export const loginUser = createAsyncThunk<UserState, { email: string; password: string, checked: boolean }>(
     'user/login',
-    async ({ email, password }, { rejectWithValue }) => {
+    async ({ email, password, checked }, { rejectWithValue }) => {
         try {
-            const response = await fetch('https://marathon-api.clevertec.ru/auth/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email, password }),
-            });
-            if (!response.ok) {
-                const error = await response.json();
-                return rejectWithValue(error); 
+            await new Promise(resolve => setTimeout(resolve, 200));
+            const response = await axios.post(LOGIN_URL, { email, password });
+
+            if(checked) {
+                localStorage.setItem('token', `${response.data.accessToken}`)
+            } else {
+                sessionStorage.setItem('token', `${response.data.accessToken}`);
             }
-            const userToken = await response.json();
-            return userToken;
+            
+            return response.data;
         
         } catch (error: any) {
-            return (error);
+            await new Promise(resolve => setTimeout(resolve, 200));
+
+            return rejectWithValue(error.response.data);
         }
     }
 );

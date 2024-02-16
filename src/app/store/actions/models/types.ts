@@ -2,7 +2,7 @@ export type UserState = {
     userToken: string | userType;
     errors: errorType;
     loading: boolean;
-    rememberMe: boolean;
+    checked: boolean;
 }
 export type UserRecoverPass = {
     email: string;

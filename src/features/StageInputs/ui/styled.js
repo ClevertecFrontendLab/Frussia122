@@ -4,6 +4,7 @@ import { Button, Form, Input } from 'antd';
 
 
 export const Row = styled(Form.Item)`
+    
     &:last-child{
         margin-bottom: 0;
     }
@@ -64,6 +65,6 @@ export const SaveButton = styled(Button)`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 32px;
+    margin-top: 24px;
     margin-bottom: 0;
 `

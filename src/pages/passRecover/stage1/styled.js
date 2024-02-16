@@ -1,6 +1,7 @@
 import {styled} from "styled-components";
 import {
-    ExclamationCircleFilled
+    ExclamationCircleFilled,
+    CloseCircleFilled
   } from '@ant-design/icons'
 
 
@@ -38,13 +39,15 @@ export const Attention = styled(ExclamationCircleFilled)`
 `
 
 export const Title = styled.h2`
-    font: 500 24px / 130% "Inter", sans-serif;
+    font: 500 18px / 130% "Inter", sans-serif;
     color: #262626;
+    margin-top: 24px;
 `
 export const Description = styled.p`
     font: 400 14px / 130% "Inter", sans-serif;
     color: #8c8c8c;
-    max-width: 475px;
+    
+    
 `
 
 export const Hint = styled.span`
@@ -53,4 +56,9 @@ export const Hint = styled.span`
 `
 export const Email = styled.span`
 font: 700 14px / 130% "Inter", sans-serif;
+`
+
+export const ErrorIcon = styled(CloseCircleFilled)`
+color: #ff4d4f;
+  font-size: 70px;
 `

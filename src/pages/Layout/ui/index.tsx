@@ -6,7 +6,10 @@ import {
 } from './styled';
 import { Header } from "@widgets/header";
 export const Layout = () => {
-  const isAuthenticated = localStorage.getItem('accessToken') !== null;
+  const localToken = localStorage.getItem('token');
+  const sessionToken = sessionStorage.getItem('token');
+
+  const isAuthenticated = localToken || sessionToken  !== null;
 
   return (
     isAuthenticated ?  

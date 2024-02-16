@@ -8,8 +8,14 @@ import {
 import {
     HOMEPAGE,
     AUTH,
-    REGISTRATION
+    REGISTRATION,
+    CHANGE_PASSWORD
 } from '@shared/Constants/Routes/ROUTE'
+
+import errorIcon from './images/image.svg'
+
+export const ErrorImage: React.FC  = () => <img style={{width: '253px'}} src={errorIcon} alt="" />
+
 export const AlertsData: Data = [
     {
         currentLink: 'asdasd',
@@ -18,8 +24,7 @@ export const AlertsData: Data = [
         title: 'Вход не выполнен', 
         description: 'Что-то пошло не так. Попробуйте еще раз',
         buttonText: 'Повторить',
-        linkToRedirect: HOMEPAGE
-        ,
+        linkToRedirect: HOMEPAGE,
     },
     {
         currentLink: 'asdasdasdasd',
@@ -59,7 +64,7 @@ export const AlertsData: Data = [
     },
     {
         currentLink: 'asdasd',
-        icon: <CheckCircleFilled  style={{'color': '#52c41a'}}/>,
+        icon: <ErrorImage />,
         id: 'asdaasdasd',
         title: 'Что-то пошло не так', 
         description: 'Произошла ошибка, попробуйте отправить форму ещё раз.',
@@ -74,5 +79,14 @@ export const AlertsData: Data = [
         description: 'Теперь можно войти в аккаунт, используя свой логин и новый пароль',
         buttonText: 'Назад',
         linkToRedirect: `${AUTH}`,
-    }
+    },
+    {
+        currentLink: 'asdasd',
+        icon: <CloseCircleFilled  style={{'color': '#ff4d4f'}}/>,
+        id: 'striasdasdng',
+        title: 'Данные не сохранились', 
+        description: 'Что-то пошло не так. Попробуйте еще раз',
+        buttonText: 'Повторить',
+        linkToRedirect: `${AUTH}/${CHANGE_PASSWORD}`,
+    },
 ]

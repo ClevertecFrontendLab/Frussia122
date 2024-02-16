@@ -10,6 +10,12 @@ export const LogIn = styled(Button)`
     background: #2f54eb;
     color: white;
     margin-bottom: 16px;
+
+    &:hover{
+        background: #85a5ff;
+        color: white;
+        border: 1px solid #597ef7;
+    }
     `
 export const LogInWithGoogle = styled(Button)`
     width: 100%;

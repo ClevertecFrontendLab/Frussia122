@@ -15,7 +15,8 @@ import { loginUser } from '@app/store/actions/login';
 import { push } from 'redux-first-history';
 import { LoginInputs } from '@features/LoginInputs';
 import { ERROR_LOGIN, HOMEPAGE } from '@shared/Constants/Routes/ROUTE';
-import { recoverPassword } from '@app/store/actions/recoverPassword';
+import { checkEMail } from '@app/store/actions/checkEmail';
+import { Loader } from '@shared/loader';
 
 export interface FormStateLogin {
   email: string;
@@ -26,24 +27,25 @@ export interface FormStateLogin {
 export const Auth = () => {
 
   const [checked, setChecked] = useState(false);
+  const loading = useSelector((state: RootState) => state.recover.loading);
+  const loading2 = useSelector((state: RootState) => state.user.loading);
 
   const dispatch = useDispatch<AppDispatch>();
   const ErrorStatusCode = useSelector((state: RootState) => state.user.errors.statusCode);
- 
+
   const [formState, setFormState] = useState<FormStateLogin>({
     email: '',
     password: '',
     emailValidate: true,
   });
  
-  
-
   useEffect(() => {
-    if(ErrorStatusCode) {
+    if(ErrorStatusCode && ErrorStatusCode !== 200) {
       dispatch(push(ERROR_LOGIN))
     }
   }, [dispatch, ErrorStatusCode])
- 
+
+
   const onChange = (e: CheckboxChangeEvent) => {
     setChecked(e.target.checked);
   };
@@ -52,32 +54,24 @@ export const Auth = () => {
    const {email, password, emailValidate} = formState;
 
    if(email && password && emailValidate) {
-    try {
       const { email, password } = formState;
-      await dispatch(loginUser({email, password}));
+      await dispatch(loginUser({email, password, checked}));
       dispatch(push(HOMEPAGE))
-    } catch (error: any) {
-      console.log('asd');
-    }
    }
   }
 
   const onClick = async () => {
     const {email, emailValidate} = formState;
-
     if(email && emailValidate) {
-      console.log('asd');
-      try{
         const {email} = formState;
-        await dispatch(recoverPassword({email}));
-      } catch (error: any) {
-        console.log(".")
-      }
-
+        await dispatch(checkEMail({email}));
     }
   }
+
+
   return (
     <FBody onFinish={handleSubmit}>
+      {loading || loading2 ? <Loader /> : <></>}
       <LoginInputs formState={formState} setFormState={setFormState} />
       <Buttons name="login">
         <CheckArea>

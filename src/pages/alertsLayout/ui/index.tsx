@@ -2,7 +2,8 @@ import { AppDispatch, RootState } from "@app/store/store"
 import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { push } from "redux-first-history"
-import { clearErrors } from "@app/store/reducers/user"
+import { clearUserErrors } from "@app/store/reducers/user"
+import { clearRecoveryErrors } from "@app/store/reducers/recovery"
 import { 
     Wrapper, 
     Card,
@@ -24,16 +25,24 @@ export const AlertsLayout:React.FC<Props> = ({alert}) => {
     const dispatch = useDispatch<AppDispatch>();
     
     useEffect(() => {
-        if(!needAlerts && !needAlertsRecovery && needAlerts !== 200) {
-                dispatch(clearErrors());
+        const isRecoverError = localStorage.getItem('recoverError');
+        const isRegError = localStorage.getItem('regError');
+
+        if(isRecoverError || isRegError) return;
+        else if(!needAlerts && !needAlertsRecovery && needAlerts !== 200 && needAlertsRecovery !== 200) {
+                dispatch(clearUserErrors());
+                dispatch(clearRecoveryErrors());
                 dispatch(push(HOMEPAGE));
         }
     }, [dispatch, needAlerts, needAlertsRecovery])
 
     const handleClick = (link: string) => {
+        dispatch(clearRecoveryErrors());
+        dispatch(clearUserErrors());
         dispatch(push(link));
-        dispatch(clearErrors());
+        
     }
+    
   return (
     <Wrapper backgroundImg={background}>
         <Card>

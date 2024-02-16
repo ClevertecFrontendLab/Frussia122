@@ -4,7 +4,7 @@ import {
   RecoveryForm,
 } from './styled';
 import { FormStateRec } from '../models/types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ChangePassword } from '@app/store/actions/changePassword';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '@app/store/store';
@@ -12,11 +12,13 @@ import { AppDispatch, RootState } from '@app/store/store';
 import useAuthRedirectEffect from '../hook';
 import { AUTH, CONFIRM_EMAIL } from '@shared/Constants/Routes/ROUTE';
 import { StageInputs } from '@features/StageInputs/ui';
+import { Loader } from '@shared/loader';
 
 export const Stage2 = () => {
   const dispatch = useDispatch<AppDispatch>();
   const location = useSelector((state: RootState) => state.router.previousLocations);
   const currentLocation = useSelector((state: RootState) => state.router.location?.pathname);
+  const loading = useSelector((state: RootState) => state.recover.loading);
 
   const [formState, setFormState] = useState<FormStateRec>({
     password: '',
@@ -25,29 +27,44 @@ export const Stage2 = () => {
     confirmPasswordValid: false,
 });
 
-useAuthRedirectEffect('/auth/change-password', `${AUTH}/${CONFIRM_EMAIL}`, '2', location, currentLocation);
+useEffect(() => {
+  const isError = localStorage.getItem('recoverError');
+  const currentPassword = sessionStorage.getItem('password');
+  const currentConfirmPassword = sessionStorage.getItem('confirmPassword');
+
+  if(location && isError) {
+   if( location[1].location?.pathname === '/result/error-change-password' || isError) {
+      if(currentPassword && currentConfirmPassword) {
+       fetchData(currentPassword, currentConfirmPassword);
+      }
+  } 
+}
+}, [location]);
+
+useAuthRedirectEffect('/auth/change-password', `${AUTH}/${CONFIRM_EMAIL}`, '2', '/result/error-change-password', location, currentLocation);
+
+const fetchData = async (password: string, confirmPassword: string) => {
+    await dispatch(ChangePassword({ password, confirmPassword }));
+
+};
 
 
-const handleSubmit = async () => {
+const handleSubmit = () => {
   const { password, confirmPassword } = formState;
-  console.log(password)
-  console.log(confirmPassword)
+  sessionStorage.setItem('password', password);
+  sessionStorage.setItem('confirmPassword', confirmPassword);
   if (password !== confirmPassword) {
       return;
   }
-  try {
-      const { password, confirmPassword } = formState;
-      await dispatch(ChangePassword({ password, confirmPassword }));
-  } catch (error: any) {
-      alert(`Ошибка регистрации: ${error.message}`);
-  }
+  fetchData(password, confirmPassword);
 };
  
 
   return (
     <Wrapper >
+      {loading ? <Loader /> : <></>}
       <Title>Восстановление аккаунта</Title>
-      <RecoveryForm onFinish={handleSubmit}>
+      <RecoveryForm onFinish={() => handleSubmit()}>
         <StageInputs formState={formState} setFormState={setFormState}/>
       </RecoveryForm>
     </Wrapper>

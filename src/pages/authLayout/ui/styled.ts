@@ -27,8 +27,11 @@ export const Card = styled.div`
     background: white;
     padding: 64px 85px;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
 `
 
 export const Logo = styled.img`
     height: 76px;
+    
 `;

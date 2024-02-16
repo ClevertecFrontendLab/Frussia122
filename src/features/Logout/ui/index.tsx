@@ -4,17 +4,22 @@ import {
 } from './styled';
 import exit from '../images/Exit.svg'
 import { Props } from '../models/types';
-import { history } from '@app/store/store';
+import { push } from 'redux-first-history';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '@app/store/store';
+import { AUTH } from '@shared/Constants/Routes/ROUTE';
 
 export const Logout: React.FC<Props> = ({
     collapsed,
     screenWidth = 0
 }) => {
 
+  const dispatch = useDispatch<AppDispatch>();
 
   const handleLogout = () => {
-    localStorage.removeItem('accessToken');
-    history.push('/auth');
+    localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
+    dispatch(push(AUTH));
   }
   return (
     <Wrapper 

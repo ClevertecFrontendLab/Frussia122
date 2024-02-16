@@ -8,11 +8,13 @@ import {
   Title,
   Description,
   Hint,
-  Email
+  Email,
+  ErrorIcon
 } from './styled';
 import { codeVerification } from "@app/store/actions/codeVerification";
 import useAuthRedirectEffect from "../hook";
 import { AUTH } from "@shared/Constants/Routes/ROUTE";
+import { Loader } from "@shared/loader";
 
 export const Stage1 = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -20,37 +22,36 @@ export const Stage1 = () => {
   const error = useSelector((state: RootState) => state.recover.errors?.statusCode);
   const location = useSelector((state: RootState) => state.router.previousLocations);
   const currentLocation = useSelector((state: RootState) => state.router.location?.pathname);
-  
+  const loading = useSelector((state: RootState) => state.recover.loading);
+
 
  
-  useAuthRedirectEffect('/auth/confirm-email', AUTH, '1', location, currentLocation);
+
+  useAuthRedirectEffect('/auth/confirm-email', AUTH, '1', '', location, currentLocation);
   
-
-
   const handleVerificationInput = async (code: string) => {
-    console.log(code);
+
     if(code && email) {
-      try{
         await dispatch(codeVerification({email, code}))
-      } catch (error) {
-        console.log(error);
-      }
     }
   };
+  console.log(loading);
   
-
   return (
-    <StyledVerificationInput className={error != 200 ? 'errorCode' : ''}>
-      {error != 200 ? 'Ошибка' : <Attention />}
+   <>
+    {loading ? <Loader /> : <></>}
+    <StyledVerificationInput className={error === 200 ? '' : 'errorCode'}>
+      {error === 200  ? <Attention /> : <ErrorIcon />}
       <Title>
-        {error != 200 ? <>Неверный код.<br/>Введите код для восстановления аккаунта</> 
-        :
-        <>Введите код <br/>для восстановления аккаунта </>}
+        {error === 200 ? <>Введите код <br/>для восстановления аккаунта </>
+        : <>Неверный код. Введите код <br/> для восстановления аккаунта</> 
+        }
       </Title>
       <Description>Мы отправили вам на e-mail <Email>{email}</Email> шестизначный код. Введите его в поле ниже.</Description>
       <VerificationInput
        onComplete={handleVerificationInput} />
       <Hint>Не пришло письмо? Проверьте папку Спам.</Hint>
     </StyledVerificationInput>
+   </>
   )
 }
