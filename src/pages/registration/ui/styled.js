@@ -13,6 +13,7 @@ export const FBody = styled(Form)`
     background: #2f54eb;
     color: white;
     margin-bottom: 16px;
+    height: 40px;
     &:hover{
         background: #85a5ff;
         color: white;
@@ -21,10 +22,15 @@ export const FBody = styled(Form)`
     `
     export const LogInWithGoogle = styled(Button)`
         width: 100%;
+        height: 40px;
     `
    
 export const Buttons = styled(Form.Item)`
     margin-top: 62px;
+    @media screen and (max-width: 600px) {
+        margin-top: 32px;
+
+    }
 `
 
 

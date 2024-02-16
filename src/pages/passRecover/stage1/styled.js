@@ -42,17 +42,29 @@ export const Title = styled.h2`
     font: 500 18px / 130% "Inter", sans-serif;
     color: #262626;
     margin-top: 24px;
+
+    @media screen and (max-width: 400px) {
+      max-width: 250px;
+  }
+
 `
 export const Description = styled.p`
     font: 400 14px / 130% "Inter", sans-serif;
     color: #8c8c8c;
-    
+    @media screen and (max-width: 400px) {
+      max-width: 240px;
+      margin-bottom: 30px;
+  }
     
 `
 
 export const Hint = styled.span`
     font: 400 14px / 130% "Inter", sans-serif;
     color: #8c8c8c;
+    @media screen and (max-width: 400px) {
+      margin-top: 20px;
+      max-width: 250px;
+  }
 `
 export const Email = styled.span`
 font: 700 14px / 130% "Inter", sans-serif;

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {StyleProps} from '../models/types'
-import { Link } from "react-router-dom";
 
 
 export const Wrapper = styled.section<StyleProps>`
@@ -30,11 +29,24 @@ export const Card = styled.div`
     z-index: 2;
     padding: 64px 82px;
     border-radius: 2px;
+
+    @media screen and (max-width: 600px) {
+        padding: 64px 16px;
+        max-width: 400px;
+    }
+    @media screen and (max-width: 400px) {
+        padding: 32px 16px;
+        max-width: 328px;
+    }
+
+   
 `
 export const Content = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: center;
+    text-align: center;
     svg{
         font-size: 70px;
     }
@@ -52,7 +64,10 @@ export const Description = styled.p`
     margin: 0 24px 24px 24px;
     max-width: 370px;
     text-align: center;
-    
+    @media screen and (max-width: 400px) {
+        margin: 6px 0 24px 0;
+    }
+
     
 `
 

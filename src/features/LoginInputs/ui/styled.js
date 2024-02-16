@@ -16,17 +16,23 @@ export const Row = styled(Form.Item)`
             font: 400 14px / 130% "Inter", sans-serif;
             color: #bfbfbf;
         }
+
     }
-    
-    .ant-form-item-label{
+    .ant-input-password{
+        height: 40px;
+        padding-left: 16px;
+    }
+   .ant-form-item-label{
         position: absolute;
-        top: 1px;
+        top: 2px;
         left: 0;
         z-index: 4;
         border-right: 1px solid #d9d9d9;
-       
+        display: flex;
+        align-items: center;
+        justify-content: center;
         padding: 0 12px;
-        height: 94%;
+        height: 92%;
         background: #fafafa;
         &::after{
             margin: 0;
@@ -40,6 +46,6 @@ export const Row = styled(Form.Item)`
    }
 `
 export const FInput = styled(Input)`
-    
+    height: 40px;
   
 `

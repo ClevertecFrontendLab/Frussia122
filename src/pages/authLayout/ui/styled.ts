@@ -29,9 +29,22 @@ export const Card = styled.div`
     z-index: 2;
     display: flex;
     flex-direction: column;
+    border-radius: 2px;
+
+    @media screen and (max-width: 600px) {
+        width: 400px;
+        padding: 32px 32px;
+    }
+    @media screen and (max-width: 400px) {
+        width: 330px;
+        padding: 32px 16px;
+    }
+
 `
 
 export const Logo = styled.img`
     height: 76px;
-    
+    @media screen and (max-width: 600px) {
+        height: 50px;
+    }
 `;

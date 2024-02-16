@@ -8,6 +8,10 @@ export const Row = styled(Form.Item)`
     &:last-child{
         margin-bottom: 0;
     }
+    &:nth-child(1) {
+        margin-bottom: 48px;
+    }
+ 
     input{
         border: 1px solid #d9d9d9;
         border-radius: 2px;
@@ -36,7 +40,7 @@ export const Row = styled(Form.Item)`
     .validateText{
         color: red;
         opacity: 1;
-        position: static;
+
         z-index: 2;
     }
 
@@ -44,11 +48,22 @@ export const Row = styled(Form.Item)`
 
 export const PassInput = styled(Input.Password)`
 
+    height: 40px;
+    padding-left: 16px;
+
 `
 
 export const ValidateText = styled.span`
-    font: 400 12px / 130% "Inter", sans-serif;
-    color: #8c8c8c;
+font: 400 12px / 130% "Inter", sans-serif;
+color: #8c8c8c;
+position: absolute;
+width: 100%;
+bottom: -20px;
+left: 0;
+@media screen and (max-width: 600px) {
+   
+    bottom: -35px;
+}
 `
 export const RepeatPassValidate = styled.span`
     opacity: 0;
@@ -67,4 +82,5 @@ export const SaveButton = styled(Button)`
     justify-content: center;
     margin-top: 24px;
     margin-bottom: 0;
+    height: 40px;
 `

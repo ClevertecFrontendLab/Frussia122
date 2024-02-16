@@ -10,6 +10,11 @@ export const Wrapper = styled.div`
     display: flex;
     margin-top: 48px;
     justify-content: space-between;
+
+    @media screen and (max-width: 600px) {
+        margin-top: 32px;
+
+    }
 `
 
 export const Button = styled.div`

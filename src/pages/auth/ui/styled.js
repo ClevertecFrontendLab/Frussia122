@@ -10,6 +10,10 @@ export const LogIn = styled(Button)`
     background: #2f54eb;
     color: white;
     margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
 
     &:hover{
         background: #85a5ff;
@@ -19,10 +23,21 @@ export const LogIn = styled(Button)`
     `
 export const LogInWithGoogle = styled(Button)`
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
 `
 
 export const Buttons = styled(Form.Item)`
     margin-top: 62px;
+
+    @media screen and (max-width: 600px) {
+        margin-bottom: 64px;
+    }
+    @media screen and (max-width: 400px) {
+        margin-bottom: 94px;
+    }
 `
 
 
