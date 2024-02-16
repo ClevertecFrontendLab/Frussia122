@@ -1,10 +1,7 @@
-import React from 'react';
 import { createRoot } from 'react-dom/client';
-// import { Provider } from 'react-redux';
-import { HashRouter, Route, Routes } from 'react-router-dom';
-import { RouterProvider } from 'react-router-dom';
-// import { store } from '@redux/configure-store';
-
+import { Provider } from 'react-redux';
+import { store, history } from '@app/store/store';
+import { HistoryRouter } from 'redux-first-history/rr6';
 
 import 'normalize.css';
 import { publicRoutes } from '@app/routes/routes';
@@ -14,9 +11,9 @@ const domNode = document.getElementById('root') as HTMLDivElement;
 const root = createRoot(domNode);
 
 root.render(
-    <React.StrictMode>
-        {/* <Provider store={store}> */}
-            <RouterProvider router={publicRoutes} />
-        {/* </Provider> */}
-    </React.StrictMode>,
+        <Provider store={store}>
+            <HistoryRouter history={history}>
+                {publicRoutes}
+            </HistoryRouter>
+        </Provider>
 );

@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom"
+import { Navigate, Outlet } from "react-router-dom"
 import { SideBar } from "@widgets/sidebar"
 import {
     Wrapper,
@@ -6,13 +6,17 @@ import {
 } from './styled';
 import { Header } from "@widgets/header";
 export const Layout = () => {
+  const isAuthenticated = localStorage.getItem('accessToken') !== null;
+
   return (
-    <Wrapper>
+    isAuthenticated ?  
+      <Wrapper>
         <SideBar />
         <MainScreen>
-            <Header />
-            <Outlet />
+          <Header />
+          <Outlet />
         </MainScreen>
-    </Wrapper>
-  )
-}
+      </Wrapper> 
+    : <Navigate to="/auth" replace />
+  );
+};
