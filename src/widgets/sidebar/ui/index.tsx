@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import 'antd/dist/antd.css';
-import bigLogo from '../images/logo.svg';
+import bigLogo from '@shared/images/logo/logo.svg';
 import smallLogo from '../images/fit.svg';
 import {
   SideWrapper,
