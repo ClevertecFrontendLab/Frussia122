@@ -22,6 +22,7 @@ export interface FormStateLogin {
   email: string;
   password: string;
   emailValidate: boolean;
+  passwordValidate: boolean;
 
 }
 export const Auth = () => {
@@ -37,8 +38,14 @@ export const Auth = () => {
     email: '',
     password: '',
     emailValidate: true,
+    passwordValidate: true,
   });
- 
+
+  const fetchUser = async (email: string, password: string) => {
+    await dispatch(loginUser({email, password, checked}));
+  }
+
+
   useEffect(() => {
     if(ErrorStatusCode && ErrorStatusCode !== 200) {
       dispatch(push(ERROR_LOGIN))
@@ -50,18 +57,19 @@ export const Auth = () => {
     setChecked(e.target.checked);
   };
 
-  const handleSubmit = async () => {
-   const {email, password, emailValidate} = formState;
-
-   if(email && password && emailValidate) {
-      const { email, password } = formState;
-      await dispatch(loginUser({email, password, checked}));
-      dispatch(push(HOMEPAGE))
+ 
+  const handleSubmit = () => {
+   const {email, password, emailValidate, passwordValidate} = formState;
+   if(email && password && emailValidate && passwordValidate) {
+    
+    fetchUser(email, password)
+      
    }
   }
 
   const onClick = async () => {
     const {email, emailValidate} = formState;
+    
     if(email && emailValidate) {
         const {email} = formState;
         await dispatch(checkEMail({email}));
@@ -75,10 +83,10 @@ export const Auth = () => {
       <LoginInputs formState={formState} setFormState={setFormState} />
       <Buttons name="login">
         <CheckArea>
-          <CheckBox onChange={onChange}>Запомнить меня?</CheckBox>
-          <ForgetPass onClick={onClick}>Забыли пароль?</ForgetPass>
+          <CheckBox onChange={onChange} data-test-id='login-remember'>Запомнить меня?</CheckBox>
+          <ForgetPass onClick={onClick} data-test-id='login-forgot-button'>Забыли пароль?</ForgetPass>
         </CheckArea>
-        <LogIn htmlType="submit">Войти</LogIn>
+        <LogIn htmlType="submit" data-test-id='login-submit-button'>Войти</LogIn>
         <LogInWithGoogle>Вход через Google</LogInWithGoogle>
       </Buttons>
     </FBody>

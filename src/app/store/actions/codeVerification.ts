@@ -21,15 +21,12 @@ export const codeVerification = createAsyncThunk<CodeVerification, { email: stri
             const response = await axios.post(CONFIRM_EMAIL_URL, { email, code }, {
                 withCredentials: true
             });
-
+            
             dispatch(push(`${AUTH}/${CHANGE_PASSWORD}`));
             sessionStorage.setItem('stage', '2');
 
             return response.data;
         } catch (error: any) {
-            // Add a 0.4 second delay before rejecting the action
-            await new Promise(resolve => setTimeout(resolve, 200));
-
             return rejectWithValue(error.response.data);
         }
     }

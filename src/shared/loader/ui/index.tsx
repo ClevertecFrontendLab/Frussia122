@@ -16,7 +16,7 @@ export const Loader = () => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper data-test-id='loader'>
         <CustomLoader options={defaultOptions} height={100} width={100} />;
     </Wrapper>
   )

@@ -20,7 +20,6 @@ const { passwordValid, confirmPasswordValid } = formState;
 
 const handleChange = (e: React.ChangeEvent<HTMLInputElement>, name: string) => {
     const { value } = e.target;
-    console.log(value);
     let isValid = true;
   
     if (name === 'password') {
@@ -41,6 +40,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>, name: string) => {
     <>
     <Row name="password">
         <PassInput
+         data-test-id='change-password'
          placeholder='Новый пароль'
          className={passwordValid || !formState.password ? '' : 'validate'}
          onChange={(e) => handleChange(e, 'password')}
@@ -50,7 +50,9 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>, name: string) => {
           </ValidateText>
       </Row>
       <Row name="repeatPassword">
-        <PassInput placeholder='Повторите пароль'
+        <PassInput 
+         placeholder='Повторите пароль'
+         data-test-id='change-confirm-password'
          onChange={(e) => handleChange(e, 'confirmPassword')}
         />
         <RepeatPassValidate className={confirmPasswordValid || !formState.confirmPassword ? '' : 'validateText'}>
@@ -58,7 +60,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>, name: string) => {
         </RepeatPassValidate>
       </Row>
       <Row name='submitButton' >
-        <SaveButton htmlType="submit">Сохранить</SaveButton>
+        <SaveButton htmlType="submit" data-test-id='change-submit-button'>Сохранить</SaveButton>
       </Row>
     </>
   )

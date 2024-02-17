@@ -51,5 +51,9 @@ export const CheckBox = styled(Checkbox)`
 
 `
 export const ForgetPass = styled.span`
-
+        color: #2f54eb;
+        cursor: pointer;
+        &:hover{
+            color: #597ef7;
+        }
 `

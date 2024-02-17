@@ -14,24 +14,32 @@ import { CHECK_EMAIL } from '@shared/Constants/Api/API';
 
 export const checkEMail = createAsyncThunk<UserRecoverPass, { email: string; }>(
     'recover/checkEMail',
-    async ({ email }, { dispatch,rejectWithValue }) => {
+    async ({ email }, { dispatch }) => {
         try {
-            const response = await axios.post(CHECK_EMAIL, { email });
+            await new Promise(resolve => setTimeout(resolve, 200));
 
+            const response = await axios.post(CHECK_EMAIL, { email }, {
+                withCredentials: true
+            });
+            localStorage.setItem('email', email);
             sessionStorage.setItem('stage', '1');
+            localStorage.removeItem('recoverError');
+
             dispatch(push(`${AUTH}/${CONFIRM_EMAIL}`))
             return response.data;
             
         } catch (errors: any) {
-
-            const {statusCode, error, message} = errors.response.data;
-            if(statusCode === 404 && message === 'Email не найден') {
+            localStorage.setItem('email', email);
+            const status = errors.response.status;
+            const {message} = errors.response.data;
+            if(status === 404 && message === 'Email не найден') {
                 dispatch(push(ERROR_CHECK_EMAIL_NO_EXIST))
             } else {
+                localStorage.setItem('recoverError', 'true');
                 dispatch(push(ERROR_CHECK_EMAIL))
             }
         
-            return rejectWithValue(errors.response.data);
+            return errors.response.data;
         }
     }
 );

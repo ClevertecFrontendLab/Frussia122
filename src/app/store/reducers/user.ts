@@ -2,6 +2,8 @@ import { createSlice} from "@reduxjs/toolkit";
 import { registerUser } from "../actions/registration";
 import { UserState, errorType } from "../actions/models/types";
 import { loginUser } from "../actions/login";
+import { ERROR_LOGIN, HOMEPAGE } from "@shared/Constants/Routes/ROUTE";
+import { history } from "../store";
 
 const initialState: UserState = {
   userToken: {
@@ -37,6 +39,7 @@ const userSlice = createSlice({
           state.loading = true;
         })
         .addCase(registerUser.fulfilled, (state) => {
+         
           state.errors = {
             statusCode: 200,
             error: '',
@@ -52,15 +55,13 @@ const userSlice = createSlice({
           };
           state.loading = false;
         })
-        .addCase(registerUser.rejected, (state, action) => {
-            state.errors = action.payload as errorType;
+        .addCase(registerUser.rejected, (state) => {
+          
             state.loading = false;
         })
-        .addCase(loginUser.rejected, (state, action) => {
+        .addCase(loginUser.rejected, (state) => {
           localStorage.removeItem('accessToken');  
-          state.errors = action.payload as errorType;
           state.loading = false;
-          
         });
     },
   });

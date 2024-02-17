@@ -14,44 +14,59 @@ import {
 } from "./styled"
 import background from '../images/Enter page_light.jpg'
 import { Props } from "../models/types"
-import { HOMEPAGE } from "@shared/Constants/Routes/ROUTE"
+import { AUTH } from "@shared/Constants/Routes/ROUTE"
+import { checkEMail } from "@app/store/actions/checkEmail"
+import { ChangePassword } from "@app/store/actions/changePassword"
+import { Loader } from "@shared/loader"
 
 
 export const AlertsLayout:React.FC<Props> = ({alert}) => {
 
     const needAlerts = useSelector((state: RootState) => state.user.errors.statusCode)
     const needAlertsRecovery = useSelector((state: RootState) => state.recover.errors.statusCode)
+    const location = useSelector((state: RootState) => state.router);
+    const loading = useSelector((state: RootState) => state.recover.loading);
 
     const dispatch = useDispatch<AppDispatch>();
     
     useEffect(() => {
         const isRecoverError = localStorage.getItem('recoverError');
         const isRegError = localStorage.getItem('regError');
-
-        if(isRecoverError || isRegError) return;
+        
+        if(isRecoverError || isRegError) return
         else if(!needAlerts && !needAlertsRecovery && needAlerts !== 200 && needAlertsRecovery !== 200) {
-                dispatch(clearUserErrors());
-                dispatch(clearRecoveryErrors());
-                dispatch(push(HOMEPAGE));
+                dispatch(push(AUTH));
         }
     }, [dispatch, needAlerts, needAlertsRecovery])
 
+
     const handleClick = (link: string) => {
-        dispatch(clearRecoveryErrors());
-        dispatch(clearUserErrors());
-        dispatch(push(link));
-        
+        const email = localStorage.getItem('email');
+        const password = sessionStorage.getItem('password');
+        const confirmPassword = sessionStorage.getItem('confirmPassword');
+     
+        if(location.location?.pathname === '/result/error-check-email' && email) {
+            dispatch(checkEMail({email}));
+        } else if(location.location?.pathname === '/result/error-change-password' && password && confirmPassword) {
+            dispatch(ChangePassword({password, confirmPassword}))
+        } 
+        else {
+            dispatch(clearRecoveryErrors());
+            dispatch(clearUserErrors());
+            dispatch(push(link));
+        } 
     }
     
   return (
     <Wrapper backgroundImg={background}>
+         {loading ? <Loader /> : <></>}
         <Card>
         {alert && (
             <Content>
                 {alert?.icon}
                 <Title>{alert?.title}</Title>
                 <Description>{alert?.description}</Description>
-                <Button onClick={() => handleClick(alert.linkToRedirect)}>{alert?.buttonText}</Button>
+                <Button data-test-id={alert?.dataTestId} onClick={() => handleClick(alert.linkToRedirect)}>{alert?.buttonText}</Button>
             </Content>     
         )}
         </Card>

@@ -16,7 +16,6 @@ export const RegistrationInputs:React.FC<Props> = ({formState, setFormState}) =>
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>, name: string) => {
         const { value } = e.target;
-        console.log(value);
         let isValid = true;
 
         if (name === 'email') {
@@ -39,6 +38,7 @@ export const RegistrationInputs:React.FC<Props> = ({formState, setFormState}) =>
         <>
             <Row label="e-mail" name="email">
                     <FInput
+                        data-test-id='registration-email'
                         placeholder=''
                         value={formState.email}
                         className={emailValid || !formState.email ? '' : 'validate'}
@@ -46,6 +46,7 @@ export const RegistrationInputs:React.FC<Props> = ({formState, setFormState}) =>
                 </Row>
                 <Row name="password">
                     <FInput.Password
+                        data-test-id='registration-password'
                         placeholder='Пароль'
                         value={formState.password}
                         className={passwordValid || !formState.password ? '' : 'validate'}
@@ -57,6 +58,7 @@ export const RegistrationInputs:React.FC<Props> = ({formState, setFormState}) =>
                 </Row>
                 <Row name="repeatPassword">
                     <FInput.Password
+                        data-test-id='registration-confirm-password'
                         placeholder='Повторите пароль'
                         value={formState.repeatPassword}
                         onChange={(e) => handleChange(e, 'repeatPassword')} />

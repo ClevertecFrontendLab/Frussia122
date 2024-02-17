@@ -4,7 +4,7 @@ import {
   RecoveryForm,
 } from './styled';
 import { FormStateRec } from '../models/types';
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import { ChangePassword } from '@app/store/actions/changePassword';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '@app/store/store';
@@ -27,19 +27,6 @@ export const Stage2 = () => {
     confirmPasswordValid: false,
 });
 
-useEffect(() => {
-  const isError = localStorage.getItem('recoverError');
-  const currentPassword = sessionStorage.getItem('password');
-  const currentConfirmPassword = sessionStorage.getItem('confirmPassword');
-
-  if(location && isError) {
-   if( location[1].location?.pathname === '/result/error-change-password' || isError) {
-      if(currentPassword && currentConfirmPassword) {
-       fetchData(currentPassword, currentConfirmPassword);
-      }
-  } 
-}
-}, [location]);
 
 useAuthRedirectEffect('/auth/change-password', `${AUTH}/${CONFIRM_EMAIL}`, '2', '/result/error-change-password', location, currentLocation);
 

@@ -25,6 +25,7 @@ export const AlertsData: Data = [
         description: 'Что-то пошло не так. Попробуйте еще раз',
         buttonText: 'Повторить',
         linkToRedirect: HOMEPAGE,
+        dataTestId: 'login-retry-button',
     },
     {
         currentLink: 'asdasdasdasd',
@@ -34,6 +35,7 @@ export const AlertsData: Data = [
         description: 'Регистрация прошла успешно. Зайдите в приложение, используя свои e-mail и пароль.',
         buttonText: 'Войти',
         linkToRedirect: AUTH,
+        dataTestId: 'registration-enter-button',
     },
     {
         currentLink: 'asdasd',
@@ -43,6 +45,7 @@ export const AlertsData: Data = [
         description: 'Такой e-mail уже записан в системе. Попробуйте зарегистрироваться по другому e-mail.',
         buttonText: 'Назад к регистрации',
         linkToRedirect: `${AUTH}/${REGISTRATION}`,
+        dataTestId: 'registration-back-button',
     },
     {
         currentLink: 'asdasd',
@@ -52,6 +55,7 @@ export const AlertsData: Data = [
         description: 'Что-то пошло не так и ваша регистрация не завершилась. Попробуйте ещё раз.',
         buttonText: 'Повторить',
         linkToRedirect: `${AUTH}/${REGISTRATION}`,
+        dataTestId: 'registration-retry-button',
     },
     {
         currentLink: 'asdasd',
@@ -61,6 +65,7 @@ export const AlertsData: Data = [
         description: 'Мы не нашли в базе вашего e-mail. Попробуйте войти с другим e-mail.',
         buttonText: 'Попробовать снова',
         linkToRedirect: `${AUTH}`,
+        dataTestId: 'check-retry-button',
     },
     {
         currentLink: 'asdasd',
@@ -70,6 +75,7 @@ export const AlertsData: Data = [
         description: 'Произошла ошибка, попробуйте отправить форму ещё раз.',
         buttonText: 'Назад',
         linkToRedirect: `${AUTH}`,
+        dataTestId: 'check-back-button',
     },
     {
         currentLink: 'asdasd',
@@ -79,6 +85,7 @@ export const AlertsData: Data = [
         description: 'Теперь можно войти в аккаунт, используя свой логин и новый пароль',
         buttonText: 'Назад',
         linkToRedirect: `${AUTH}`,
+        dataTestId: 'change-entry-button',
     },
     {
         currentLink: 'asdasd',
@@ -88,5 +95,6 @@ export const AlertsData: Data = [
         description: 'Что-то пошло не так. Попробуйте еще раз',
         buttonText: 'Повторить',
         linkToRedirect: `${AUTH}/${CHANGE_PASSWORD}`,
+        dataTestId: 'change-retry-button',
     },
 ]

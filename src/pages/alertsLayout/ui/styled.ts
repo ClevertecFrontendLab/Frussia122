@@ -78,5 +78,11 @@ export const Button = styled.button`
     color: white;
     text-align: center;
     padding: 11px;
-    border: none;
+    border: 1px solid transparent;
+    transition: all .2s linear;
+    &:hover{
+        background: #85a5ff;
+        border: 1px solid #597ef7;
+        cursor: pointer;
+    }
 `

@@ -4,7 +4,7 @@ import {
     FInput
 } from './styled';
 
-import { isValidEmail } from '@shared/utils/validateSchema';
+import { isValidEmail, validatePassword } from '@shared/utils/validateSchema';
 
 type Props = {
     formState: FormStateLogin,
@@ -16,11 +16,23 @@ export const LoginInputs:React.FC<Props> = ({formState, setFormState}) => {
     const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
         let isValid = true;
         isValid = isValidEmail(e.target.value)
-        console.log(isValid);
+
         setFormState(prevState => ({
           ...prevState,
           email: e.target.value,
           emailValidate: isValid,
+        }))
+      }
+
+      const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+        let isValid = true;
+        isValid = validatePassword(e.target.value);
+
+        setFormState(prevState => ({
+          ...prevState,
+          password: e.target.value,
+          passwordValidate: isValid,
         }))
       }
       const {emailValidate} = formState;
@@ -28,6 +40,7 @@ export const LoginInputs:React.FC<Props> = ({formState, setFormState}) => {
     <>
     <Row label="e-mail" name="username">
         <FInput 
+        data-test-id='login-email'
         placeholder=''
         value={formState.email}
         onChange={(e) => handleEmail(e)}
@@ -37,10 +50,10 @@ export const LoginInputs:React.FC<Props> = ({formState, setFormState}) => {
       </Row>
       <Row name="password">
         <FInput.Password 
+        data-test-id='login-password'
         placeholder='Пароль'
-        required
         value={formState.password}
-        onChange={(e) => setFormState({ ...formState, password: e.target.value})}
+        onChange={(e) => handlePassword(e)}
         />
       </Row>
     </>

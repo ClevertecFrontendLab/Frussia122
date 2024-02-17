@@ -15,28 +15,29 @@ import { codeVerification } from "@app/store/actions/codeVerification";
 import useAuthRedirectEffect from "../hook";
 import { AUTH } from "@shared/Constants/Routes/ROUTE";
 import { Loader } from "@shared/loader";
+import { useState } from "react";
 
 export const Stage1 = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const email = sessionStorage.getItem('email');
+  const email = localStorage.getItem('email');
   const error = useSelector((state: RootState) => state.recover.errors?.statusCode);
   const location = useSelector((state: RootState) => state.router.previousLocations);
   const currentLocation = useSelector((state: RootState) => state.router.location?.pathname);
   const loading = useSelector((state: RootState) => state.recover.loading);
+  const [verificationCode, setVerificationCode] = useState(''); // Состояние для отслеживания введенного кода
 
-
- 
 
   useAuthRedirectEffect('/auth/confirm-email', AUTH, '1', '', location, currentLocation);
   
-  const handleVerificationInput = async (code: string) => {
-
+  const handleVerificationInput = (code: string) => {
+    if(error) {
+      setVerificationCode('');
+    }
     if(code && email) {
-        await dispatch(codeVerification({email, code}))
+        dispatch(codeVerification({email, code}))
     }
   };
-  console.log(loading);
-  
+
   return (
    <>
     {loading ? <Loader /> : <></>}
@@ -49,7 +50,11 @@ export const Stage1 = () => {
       </Title>
       <Description>Мы отправили вам на e-mail <Email>{email}</Email> шестизначный код. Введите его в поле ниже.</Description>
       <VerificationInput
-       onComplete={handleVerificationInput} />
+        value={verificationCode}
+        onChange={setVerificationCode}
+        onComplete={handleVerificationInput} 
+        inputProps={{ 'data-test-id': 'verification-input' }}
+      />
       <Hint>Не пришло письмо? Проверьте папку Спам.</Hint>
     </StyledVerificationInput>
    </>

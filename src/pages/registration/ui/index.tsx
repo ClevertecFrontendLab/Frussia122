@@ -59,7 +59,7 @@ export const Registration = () => {
             {loading ? <Loader /> : <></>}
             <RegistrationInputs formState={formState} setFormState={setFormState}/>
             <Buttons name="login">
-                <LogIn htmlType="submit" disabled={!formValidate}>Войти</LogIn>
+                <LogIn htmlType="submit"  data-test-id='registration-submit-button' disabled={!formValidate}>Войти</LogIn>
                 <LogInWithGoogle>Регистрация через Google</LogInWithGoogle>
             </Buttons>
         </FBody>

@@ -8,4 +8,5 @@ export type DataItem = {
     buttonText: string;
     description: string;
     linkToRedirect: string;
+    dataTestId: string;
 }
