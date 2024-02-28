@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { push } from 'redux-first-history';
-import { UserState } from './models/types';
-import { ERROR_USER_EXIST, RESULT_ERROR, SUCCESS } from '@shared/Constants/Routes/ROUTE';
-import { REGISTRATION_URL } from '@shared/Constants/Api/API';
 import axios from 'axios';
+import { REGISTRATION_URL } from '@shared/Data/Constants/Api/API';
+import { SUCCESS, ERROR_USER_EXIST, RESULT_ERROR } from '@shared/Data/Constants/Routes/ROUTE';
+import { UserState } from '../models/types';
 
 export const registerUser = createAsyncThunk<UserState, { email: string; password: string }>(
     'user/register',

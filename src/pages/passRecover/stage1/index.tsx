@@ -11,23 +11,20 @@ import {
   Email,
   ErrorIcon
 } from './styled';
-import { codeVerification } from "@app/store/actions/codeVerification";
 import useAuthRedirectEffect from "../hook";
-import { AUTH } from "@shared/Constants/Routes/ROUTE";
-import { Loader } from "@shared/loader";
 import { useState } from "react";
+import { codeVerification } from "@app/store/Actions/api/codeVerification";
+import { Loader } from "@shared/Components/Loader";
 
 export const Stage1 = () => {
   const dispatch = useDispatch<AppDispatch>();
   const email = localStorage.getItem('email');
   const error = useSelector((state: RootState) => state.recover.errors?.statusCode);
   const location = useSelector((state: RootState) => state.router.previousLocations);
-  const currentLocation = useSelector((state: RootState) => state.router.location?.pathname);
   const loading = useSelector((state: RootState) => state.recover.loading);
-  const [verificationCode, setVerificationCode] = useState(''); // Состояние для отслеживания введенного кода
+  const [verificationCode, setVerificationCode] = useState(''); 
 
-
-  useAuthRedirectEffect('/auth/confirm-email', AUTH, '1', '', location, currentLocation);
+  useAuthRedirectEffect('1',  location);
   
   const handleVerificationInput = (code: string) => {
     if(error) {

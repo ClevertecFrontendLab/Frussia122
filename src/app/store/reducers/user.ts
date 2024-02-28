@@ -1,9 +1,8 @@
-import { createSlice} from "@reduxjs/toolkit";
-import { registerUser } from "../actions/registration";
-import { UserState, errorType } from "../actions/models/types";
-import { loginUser } from "../actions/login";
-import { ERROR_LOGIN, HOMEPAGE } from "@shared/Constants/Routes/ROUTE";
-import { history } from "../store";
+import { createSlice } from "@reduxjs/toolkit";
+import { loginUser } from "../Actions/api/login";
+import { registerUser } from "../Actions/api/registration";
+import { UserState } from "../Actions/models/types";
+
 
 const initialState: UserState = {
   userToken: {

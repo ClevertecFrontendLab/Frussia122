@@ -4,15 +4,8 @@ import {
     WarningFilled,
     CheckCircleFilled,
   } from '@ant-design/icons'
-
-import {
-    HOMEPAGE,
-    AUTH,
-    REGISTRATION,
-    CHANGE_PASSWORD
-} from '@shared/Constants/Routes/ROUTE'
-
 import errorIcon from './images/image.svg'
+import { HOMEPAGE, AUTH, REGISTRATION, CHANGE_PASSWORD } from "../Constants/Routes/ROUTE";
 
 export const ErrorImage: React.FC  = () => <img style={{width: '253px'}} src={errorIcon} alt="" />
 

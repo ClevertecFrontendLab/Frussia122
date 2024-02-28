@@ -1,16 +1,15 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { push } from 'redux-first-history';
 import axios from 'axios';
-
-import { UserRecoverPass } from './models/types';
+import { UserRecoverPass } from '../models/types';
+import { CHECK_EMAIL } from '@shared/Data/Constants/Api/API';
 import { 
-    ERROR_CHECK_EMAIL_NO_EXIST,
-    ERROR_CHECK_EMAIL,
-    CONFIRM_EMAIL,
-    AUTH,
+    AUTH, 
+    CONFIRM_EMAIL, 
+    ERROR_CHECK_EMAIL, 
+    ERROR_CHECK_EMAIL_NO_EXIST 
+} from '@shared/Data/Constants/Routes/ROUTE';
 
- } from '@shared/Constants/Routes/ROUTE';
-import { CHECK_EMAIL } from '@shared/Constants/Api/API';
 
 export const checkEMail = createAsyncThunk<UserRecoverPass, { email: string; }>(
     'recover/checkEMail',

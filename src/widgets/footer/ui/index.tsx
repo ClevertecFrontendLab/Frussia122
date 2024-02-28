@@ -1,9 +1,9 @@
-import { CardLayout } from '@shared/cardLayout';
 import {
     Wrapper,
     ReviewLink
 } from './styled';
 import { FooterCard } from '../cardData/data';
+import { CardLayout } from '@shared/Layouts/Card';
 
 export const MainFooter = () => {
   return (

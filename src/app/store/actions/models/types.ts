@@ -32,3 +32,4 @@ export type errorType = {
 export type userType = {
     accessToken: string
 }
+//

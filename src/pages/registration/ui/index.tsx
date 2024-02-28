@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { FBody, LogIn, LogInWithGoogle, Buttons, } from './styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerUser } from '@app/store/actions/registration';
 import { AppDispatch } from '@app/store/store';
 import { FormStateReg } from '../models/type';
-import { RegistrationInputs } from '@features/RegistrationInputs';
 import { RootState } from '@app/store/store';
-import { Loader } from '@shared/loader';
+import { registerUser } from '@app/store/Actions/api/registration';
+import { RegistrationInputs } from '@features/Inputs/Registration';
+import { Loader } from '@shared/Components/Loader';
+
 
 export const Registration = () => {
     const location = useSelector((state: RootState) => state.router.previousLocations);

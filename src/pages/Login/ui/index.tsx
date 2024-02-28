@@ -11,12 +11,13 @@ import {
   import type { CheckboxChangeEvent } from 'antd/es/checkbox';
   import { AppDispatch, RootState } from '@app/store/store';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from '@app/store/actions/login';
 import { push } from 'redux-first-history';
-import { LoginInputs } from '@features/LoginInputs';
-import { ERROR_LOGIN, HOMEPAGE } from '@shared/Constants/Routes/ROUTE';
-import { checkEMail } from '@app/store/actions/checkEmail';
-import { Loader } from '@shared/loader';
+import { checkEMail } from '@app/store/Actions/api/checkEmail';
+import { loginUser } from '@app/store/Actions/api/login';
+import { LoginInputs } from '@features/Inputs/Login';
+import { Loader } from '@shared/Components/Loader';
+import { ERROR_LOGIN } from '@shared/Data/Constants/Routes/ROUTE';
+
 
 export interface FormStateLogin {
   email: string;
@@ -41,23 +42,20 @@ export const Auth = () => {
     passwordValidate: true,
   });
 
-  const fetchUser = async (email: string, password: string) => {
-    await dispatch(loginUser({email, password, checked}));
-  }
-
-
   useEffect(() => {
     if(ErrorStatusCode && ErrorStatusCode !== 200) {
       dispatch(push(ERROR_LOGIN))
     }
   }, [dispatch, ErrorStatusCode])
 
+  const fetchUser = async (email: string, password: string) => {
+    await dispatch(loginUser({email, password, checked}));
+  }
 
   const onChange = (e: CheckboxChangeEvent) => {
     setChecked(e.target.checked);
   };
 
- 
   const handleSubmit = () => {
    const {email, password, emailValidate, passwordValidate} = formState;
    if(email && password && emailValidate && passwordValidate) {

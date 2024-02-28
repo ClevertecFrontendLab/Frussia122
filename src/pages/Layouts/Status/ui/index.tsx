@@ -14,10 +14,10 @@ import {
 } from "./styled"
 import background from '../images/Enter page_light.jpg'
 import { Props } from "../models/types"
-import { AUTH } from "@shared/Constants/Routes/ROUTE"
-import { checkEMail } from "@app/store/actions/checkEmail"
-import { ChangePassword } from "@app/store/actions/changePassword"
-import { Loader } from "@shared/loader"
+import { ChangePassword } from "@app/store/Actions/api/changePassword"
+import { checkEMail } from "@app/store/Actions/api/checkEmail"
+import { Loader } from "@shared/Components/Loader"
+import { AUTH } from "@shared/Data/Constants/Routes/ROUTE"
 
 
 export const AlertsLayout:React.FC<Props> = ({alert}) => {

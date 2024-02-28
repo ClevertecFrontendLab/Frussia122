@@ -1,27 +1,28 @@
-import { AuthLayout } from "@pages/authLayout";
-import { MainPage } from "@pages/home";
-import { Layout } from "@pages/Layout";
-import {  Navigate, Route, Routes } from 'react-router-dom';
+import { MainPage } from "@pages/Home";
+import { AuthLayout } from "@pages/Layouts/Auth";
+import { AlertsLayout } from "@pages/Layouts/Status";
+import { Auth } from "@pages/Login";
+import { Stage1, Stage2 } from "@pages/PassRecover";
+import { Registration } from "@pages/Registration";
 import { 
-    HOMEPAGE,
-    AUTH,
-    REGISTRATION,
-    ERROR_LOGIN,
-    SUCCESS,
-    ERROR_USER_EXIST,
-    RESULT_ERROR,
-    ERROR_CHECK_EMAIL_NO_EXIST,
-    ERROR_CHECK_EMAIL,
-    CONFIRM_EMAIL,
-    CHANGE_PASSWORD,
-    SUCCESS_CHANGE_PASSWORD,
-    ERROR_CHANGE_PASSWORD
- } from "@shared/Constants/Routes/ROUTE";
-import { Registration } from "@pages/registration";
-import { Auth } from "@pages/auth";
-import { AlertsLayout } from "@pages/alertsLayout";
-import { AlertsData } from "@shared/alertsData/data";
-import { Stage1, Stage2 } from "@pages/passRecover";
+  HOMEPAGE, 
+  AUTH, 
+  REGISTRATION, 
+  CONFIRM_EMAIL, 
+  CHANGE_PASSWORD, 
+  ERROR_LOGIN, 
+  SUCCESS, 
+  ERROR_USER_EXIST, 
+  RESULT_ERROR, 
+  ERROR_CHECK_EMAIL_NO_EXIST, 
+  ERROR_CHECK_EMAIL, 
+  ERROR_CHANGE_PASSWORD, 
+  SUCCESS_CHANGE_PASSWORD 
+} from "@shared/Data/Constants/Routes/ROUTE";
+import { AlertsData } from "@shared/Data/StatusData/data";
+import { Layout } from "@pages/Layouts/Main";
+import { Navigate, Routes, Route } from "react-router-dom";
+
 
 const routes = [
     {

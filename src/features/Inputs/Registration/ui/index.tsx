@@ -4,8 +4,8 @@ import {
     ValidateText,
     RepeatPassValidate
 } from './styled';
-import { isValidEmail, validatePassword } from '@shared/utils/validateSchema';
-import { FormStateReg } from '@pages/registration/models/type';
+import { isValidEmail, validatePassword } from '@shared/Utils/validateSchema';
+import { FormStateReg } from '@pages/Registration/models/type';
 
 type Props = {
     formState: FormStateReg,
@@ -36,8 +36,9 @@ export const RegistrationInputs:React.FC<Props> = ({formState, setFormState}) =>
     const { emailValid, passwordValid, repeatPasswordValid } = formState;
     return (
         <>
-            <Row label="e-mail" name="email">
+            <Row name="email">
                     <FInput
+                        prefix={'e-mail:'}
                         data-test-id='registration-email'
                         placeholder=''
                         value={formState.email}

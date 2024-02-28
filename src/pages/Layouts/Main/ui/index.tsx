@@ -1,10 +1,8 @@
-import { Navigate, Outlet } from "react-router-dom"
-import { SideBar } from "@widgets/sidebar"
-import {
-    Wrapper,
-    MainScreen
-} from './styled';
-import { Header } from "@widgets/header";
+import { SideBar } from "@widgets/Sidebar";
+import { Header } from "@widgets/Header";
+import { Outlet, Navigate } from "react-router-dom";
+import { Wrapper, MainScreen } from "./styled";
+
 export const Layout = () => {
   const localToken = localStorage.getItem('token');
   const sessionToken = sessionStorage.getItem('token');

@@ -1,10 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { LOGIN_URL } from '@shared/Data/Constants/Api/API';
+import { HOMEPAGE, ERROR_LOGIN } from '@shared/Data/Constants/Routes/ROUTE';
 import axios from 'axios';
 
-import { UserState } from './models/types';
-import { LOGIN_URL } from '@shared/Constants/Api/API';
 import { push } from 'redux-first-history';
-import { ERROR_LOGIN, HOMEPAGE } from '@shared/Constants/Routes/ROUTE';
+import { UserState } from '../models/types';
 
 export const loginUser = createAsyncThunk<UserState, { email: string; password: string, checked: boolean }>(
     'user/login',

@@ -1,4 +1,4 @@
-import { FormStateLogin } from '@pages/auth/ui';
+import { FormStateLogin } from '@pages/Login/ui';
 import {
     Row,
     FInput

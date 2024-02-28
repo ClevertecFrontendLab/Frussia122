@@ -3,7 +3,9 @@ import { styled } from 'styled-components';
 export const Row = styled(Form.Item)`
     font: 400 14px / 130% "Inter", sans-serif;
     position: relative;
-
+    .ant-input-affix-wrapper{
+        padding:0;
+    }
     &:nth-child(2) {
         margin-bottom: 32px;
     }
@@ -18,10 +20,11 @@ export const Row = styled(Form.Item)`
         height: 40px;
         padding-left: 16px;
     }
+    
     input{
         border: 1px solid #d9d9d9;
         border-radius: 2px;
-        padding: 5px 12px 5px 25%;
+      
         margin-left: -1px;
         &::placeholder {
             font: 400 14px / 130% "Inter", sans-serif;
@@ -29,21 +32,11 @@ export const Row = styled(Form.Item)`
         }
         
     }
-    .ant-form-item-label{
-        position: absolute;
-        top: 2px;
-        left: 0;
-        z-index: 4;
+    .ant-input-prefix{
         border-right: 1px solid #d9d9d9;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0 12px;
-        height: 93%;
+        padding: 10px 12px;
         background: #fafafa;
-        &::after{
-            margin: 0;
-        }
+        margin-right: 10px;
     }
     .validate{
          border: 1px solid red;

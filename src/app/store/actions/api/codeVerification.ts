@@ -1,15 +1,9 @@
-import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import { push } from 'redux-first-history';
-import { CodeVerification } from './models/types';
-
-import { 
-    AUTH,
-    CHANGE_PASSWORD,
-    ERROR_CHECK_EMAIL
- } from '@shared/Constants/Routes/ROUTE';
-
- import { CONFIRM_EMAIL_URL } from '@shared/Constants/Api/API';
 import axios from 'axios';
+import { CONFIRM_EMAIL_URL } from '@shared/Data/Constants/Api/API';
+import { AUTH, CHANGE_PASSWORD } from '@shared/Data/Constants/Routes/ROUTE';
+import { CodeVerification } from '../models/types';
 
 export const codeVerification = createAsyncThunk<CodeVerification, { email: string; code: string }>(
     'recover/codeVerification',

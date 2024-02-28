@@ -1,4 +1,3 @@
-import { AUTH, REGISTRATION } from "@shared/Constants/Routes/ROUTE";
 import {
   Wrapper,
   Button,
@@ -8,6 +7,7 @@ import { Props } from "../models/types";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@app/store/store";
 import { push } from "redux-first-history";
+import { AUTH, REGISTRATION } from '@shared/Data/Constants/Routes/ROUTE';
 
 export const AuthType: React.FC<Props> = ({type}) => {
 

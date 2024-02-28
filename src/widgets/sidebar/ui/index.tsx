@@ -11,9 +11,9 @@ import {
   Wrapper
 } from './styled';
 import { Links } from '../constants/Links';
-import { SidebarToggle } from '@features/SidebarToggle';
 import { Affix } from 'antd';
-import { Logout } from '@features/Logout';
+import { SidebarToggle } from '@features/Buttons/SidebarToggle';
+import { Logout } from '@features/Buttons/Logout';
 
 export const SideBar: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);

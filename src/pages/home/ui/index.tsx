@@ -1,13 +1,15 @@
-import { useEffect, useState } from 'react';
 import { Wrapper, Content } from './styled';
-import background from '../images/Main page_light.png'
+import background from '../images/Main_page_light.png'
 import { Col, Row } from 'antd';
-import { CardLayout } from '@shared/cardLayout';
 import { testData } from '../data/data';
 import { MainFooter } from '@widgets/footer';
+import { CardLayout } from '@shared/Layouts/Card';
+import { useEffect } from 'react';
 
 export const MainPage: React.FC = () => {
-
+    useEffect(() => {
+        console.log('Я загрузился')
+    }, [])
     return (
         <>
             <Wrapper backgroundImg={background}>
