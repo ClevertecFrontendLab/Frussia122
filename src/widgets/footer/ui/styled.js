@@ -12,8 +12,7 @@ export const Wrapper = styled(Footer)`
     padding: 24px;
     align-items: flex-end;
     justify-content: space-between;
-    position: absolute;
-    bottom: 0;
+   
 
     @media screen and (max-width: 767px) {
         flex-direction: column;
@@ -34,7 +33,7 @@ export const Wrapper = styled(Footer)`
     }
 
 `
-export const ReviewLink = styled.a`
+export const ReviewLink = styled.span`
     height: 20px;
 
     @media screen and (max-width: 767px) {

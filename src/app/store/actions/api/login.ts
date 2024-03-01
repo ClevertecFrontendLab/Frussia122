@@ -15,12 +15,10 @@ export const loginUser = createAsyncThunk<UserState, { email: string; password: 
 
             if(checked) {
                 localStorage.setItem('token', `${response.data.accessToken}`)
-            } else {
-                sessionStorage.setItem('token', `${response.data.accessToken}`);
-            }
+            } 
             
             dispatch(push(HOMEPAGE));
-            return response.data;
+            return response.data.accessToken;
         
         } catch (error: any) {
             dispatch(push(ERROR_LOGIN))

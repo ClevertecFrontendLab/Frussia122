@@ -10,23 +10,17 @@ import { AuthType } from '@features/AuthType';
 import { useSelector } from "react-redux";
 import { RootState } from "@app/store/store";
 import { Props } from "../models/types";
-import { useEffect } from "react";
 
 export const AuthLayout:React.FC<Props> = ({type}) => {
   const location = useSelector((state: RootState) => state.router.location);
+  const sessionToken = useSelector((state: RootState) => state.user.token);
+  const isAuthenticated = localStorage.getItem('accessToken') || sessionToken;
 
-  const isAuthenticated = localStorage.getItem('accessToken') || sessionStorage.getItem('token') ;
-
-  useEffect(() => {
-    if(location?.pathname === '/auth') {
-      sessionStorage.removeItem('stage');
-    }
-  }, [location])
-  
+ 
   return (
     
     !isAuthenticated ?  
-    <Wrapper backgroundImg={background}>
+    <Wrapper backgroundimg={background}>
       <Card>
         {type === 'auth' ? (
           <>

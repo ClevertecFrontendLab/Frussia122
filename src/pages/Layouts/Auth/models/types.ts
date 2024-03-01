@@ -1,5 +1,5 @@
 export type StyleProps = {
-    backgroundImg: string;
+    backgroundimg: string;
 }
 
 

@@ -1,0 +1,1 @@
+export {FeedbackFooter} from './ui';

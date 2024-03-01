@@ -17,11 +17,13 @@ import {
   ERROR_CHECK_EMAIL_NO_EXIST, 
   ERROR_CHECK_EMAIL, 
   ERROR_CHANGE_PASSWORD, 
-  SUCCESS_CHANGE_PASSWORD 
+  SUCCESS_CHANGE_PASSWORD,
+  FEEDBACK
 } from "@shared/Data/Constants/Routes/ROUTE";
 import { AlertsData } from "@shared/Data/StatusData/data";
 import { Layout } from "@pages/Layouts/Main";
 import { Navigate, Routes, Route } from "react-router-dom";
+import { Feedback } from "@pages/Feedback";
 
 
 const routes = [
@@ -32,6 +34,10 @@ const routes = [
             {
                 path: HOMEPAGE,
                 element: <MainPage />
+            },
+            {
+              path: FEEDBACK,
+              element: <Feedback />
             },
             {
               path: '/',

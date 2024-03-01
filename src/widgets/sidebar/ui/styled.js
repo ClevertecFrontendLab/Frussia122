@@ -3,6 +3,8 @@ import { Layout, Menu } from 'antd';
 const { Sider } = Layout;
 
 
+
+
 export const Wrapper = styled.div`
     
 `
@@ -16,7 +18,7 @@ export const SideWrapper = styled(Sider)`
         top:0;
         left:0;
         width: auto !important;
-        
+        height: 100vh !important;
         min-width: auto !important;
         max-width: auto !important;
     }

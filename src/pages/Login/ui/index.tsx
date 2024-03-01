@@ -17,6 +17,7 @@ import { loginUser } from '@app/store/Actions/api/login';
 import { LoginInputs } from '@features/Inputs/Login';
 import { Loader } from '@shared/Components/Loader';
 import { ERROR_LOGIN } from '@shared/Data/Constants/Routes/ROUTE';
+import { GOOGLE_AUTH_URL } from '@shared/Data/Constants/Api/API';
 
 
 export interface FormStateLogin {
@@ -48,6 +49,8 @@ export const Auth = () => {
     }
   }, [dispatch, ErrorStatusCode])
 
+
+
   const fetchUser = async (email: string, password: string) => {
     await dispatch(loginUser({email, password, checked}));
   }
@@ -74,6 +77,10 @@ export const Auth = () => {
     }
   }
 
+  const handleGoogleLogin = () => {
+    window.location.href = GOOGLE_AUTH_URL;
+  };
+
 
   return (
     <FBody onFinish={handleSubmit}>
@@ -85,7 +92,7 @@ export const Auth = () => {
           <ForgetPass onClick={onClick} data-test-id='login-forgot-button'>Забыли пароль?</ForgetPass>
         </CheckArea>
         <LogIn htmlType="submit" data-test-id='login-submit-button'>Войти</LogIn>
-        <LogInWithGoogle>Вход через Google</LogInWithGoogle>
+        <LogInWithGoogle onClick={handleGoogleLogin}>Вход через Google</LogInWithGoogle>
       </Buttons>
     </FBody>
   )

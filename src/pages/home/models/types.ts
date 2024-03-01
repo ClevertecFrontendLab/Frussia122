@@ -1,6 +1,3 @@
-export type StyleProps = {
-    backgroundImg: string;
-}
 
 export type Data = {
     id?: string;

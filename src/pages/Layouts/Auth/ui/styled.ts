@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 import {StyleProps} from '../models/types'
 
 export const Wrapper = styled.section<StyleProps>`
-    background-image: url("${props => props.backgroundImg}");
+    background-image: url("${props => props.backgroundimg}");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;

@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
     height: 100%;
     backdrop-filter: blur(12px);
     background: rgba(121, 156, 212, 0.5);
-    z-index: 5;
+    z-index: 2000;
 `
 export const CustomLoader = styled(Lottie)`
     

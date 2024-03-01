@@ -10,19 +10,23 @@ import {
 import {
     SettingOutlined 
   } from '@ant-design/icons';
-export const Header = () => {
+import { Props } from '../models/type';
+import React from 'react';
+
+export const Header: React.FC<Props> = ({title, breadcrumb}) => {
   return (
     <Wrapper>
-        <Breadcrumbs />
-        <Content>
-            <HeaderTitle>
-                 Приветствуем тебя в CleverFit — приложении, которое поможет тебе добиться своей мечты!
-            </HeaderTitle>
-            <Settings>
-                <SettingOutlined />
-                <Type>Настройки</Type>
-            </Settings>
-        </Content>
+        <Breadcrumbs breadcrumb={breadcrumb}/>
+        {title && 
+         <Content>
+         <HeaderTitle>
+           {title}
+         </HeaderTitle>
+         <Settings>
+             <SettingOutlined />
+             <Type>Настройки</Type>
+         </Settings>
+     </Content>}
     </Wrapper>
   )
 }

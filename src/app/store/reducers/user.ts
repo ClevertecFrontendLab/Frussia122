@@ -5,9 +5,7 @@ import { UserState } from "../Actions/models/types";
 
 
 const initialState: UserState = {
-  userToken: {
-    accessToken: '',
-  },
+    token: '',
     errors: {
         statusCode: 0,
         error: '',
@@ -38,7 +36,6 @@ const userSlice = createSlice({
           state.loading = true;
         })
         .addCase(registerUser.fulfilled, (state) => {
-         
           state.errors = {
             statusCode: 200,
             error: '',
@@ -46,12 +43,15 @@ const userSlice = createSlice({
           }
           state.loading = false;
         })
-        .addCase(loginUser.fulfilled, (state) => {
+        .addCase(loginUser.fulfilled, (state, action) => {
           state.errors = {
             statusCode: 200,
             error: '',
             message: '',
           };
+          if(action.payload) {
+            state.token = action.payload;
+          }
           state.loading = false;
         })
         .addCase(registerUser.rejected, (state) => {
