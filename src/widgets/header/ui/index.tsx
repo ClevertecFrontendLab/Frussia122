@@ -1,5 +1,4 @@
 
-import { Breadcrumbs } from '@features/breadcrumb'
 import {
     Wrapper,
     Content,
@@ -12,6 +11,7 @@ import {
   } from '@ant-design/icons';
 import { Props } from '../models/type';
 import React from 'react';
+import { Breadcrumbs } from '@features/breadcrumb';
 
 export const Header: React.FC<Props> = ({title, breadcrumb}) => {
   return (

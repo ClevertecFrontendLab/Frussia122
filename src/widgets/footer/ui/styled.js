@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Layout } from 'antd';
-import { CardWrapper } from "@shared/Layouts/Card";
+import { CardWrapper } from "@shared/layouts/card";
 const { Footer } = Layout;
 
 export const Wrapper = styled(Footer)`
