@@ -1,5 +1,5 @@
 export type UserState = {
-    userToken: string | userType;
+    token: string;
     errors: errorType;
     loading: boolean;
     checked: boolean;
@@ -29,6 +29,3 @@ export type errorType = {
     message: string,
 }
 
-export type userType = {
-    accessToken: string
-}

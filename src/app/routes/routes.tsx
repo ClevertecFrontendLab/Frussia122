@@ -1,27 +1,32 @@
-import { AuthLayout } from "@pages/authLayout";
+
+import { Feedback } from "@pages/feedback";
 import { MainPage } from "@pages/home";
-import { Layout } from "@pages/Layout";
-import {  Navigate, Route, Routes } from 'react-router-dom';
-import { 
-    HOMEPAGE,
-    AUTH,
-    REGISTRATION,
-    ERROR_LOGIN,
-    SUCCESS,
-    ERROR_USER_EXIST,
-    RESULT_ERROR,
-    ERROR_CHECK_EMAIL_NO_EXIST,
-    ERROR_CHECK_EMAIL,
-    CONFIRM_EMAIL,
-    CHANGE_PASSWORD,
-    SUCCESS_CHANGE_PASSWORD,
-    ERROR_CHANGE_PASSWORD
- } from "@shared/Constants/Routes/ROUTE";
-import { Registration } from "@pages/registration";
-import { Auth } from "@pages/auth";
-import { AlertsLayout } from "@pages/alertsLayout";
-import { AlertsData } from "@shared/alertsData/data";
+import { AuthLayout } from "@pages/layouts/auth";
+import { Layout } from "@pages/layouts/main";
+import { AlertsLayout } from "@pages/layouts/status";
+import { Auth } from "@pages/login";
 import { Stage1, Stage2 } from "@pages/passRecover";
+import { Registration } from "@pages/registration";
+import { 
+  HOMEPAGE, 
+  AUTH, 
+  REGISTRATION, 
+  CONFIRM_EMAIL, 
+  CHANGE_PASSWORD, 
+  ERROR_LOGIN, 
+  SUCCESS, 
+  ERROR_USER_EXIST, 
+  RESULT_ERROR, 
+  ERROR_CHECK_EMAIL_NO_EXIST, 
+  ERROR_CHECK_EMAIL, 
+  ERROR_CHANGE_PASSWORD, 
+  SUCCESS_CHANGE_PASSWORD,
+  FEEDBACK
+} from "@shared/data/constants/routes/route";
+import { AlertsData } from "@shared/data/statusData/data";
+import { Navigate, Routes, Route } from "react-router-dom";
+
+
 
 const routes = [
     {
@@ -31,6 +36,10 @@ const routes = [
             {
                 path: HOMEPAGE,
                 element: <MainPage />
+            },
+            {
+              path: FEEDBACK,
+              element: <Feedback />
             },
             {
               path: '/',

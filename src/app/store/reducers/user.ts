@@ -1,14 +1,11 @@
-import { createSlice} from "@reduxjs/toolkit";
-import { registerUser } from "../actions/registration";
-import { UserState, errorType } from "../actions/models/types";
-import { loginUser } from "../actions/login";
-import { ERROR_LOGIN, HOMEPAGE } from "@shared/Constants/Routes/ROUTE";
-import { history } from "../store";
+import { createSlice } from "@reduxjs/toolkit";
+import { loginUser } from "../actions/api/login";
+import { registerUser } from "../actions/api/registration";
+import { UserState } from "../actions/models/types";
+
 
 const initialState: UserState = {
-  userToken: {
-    accessToken: '',
-  },
+    token: '',
     errors: {
         statusCode: 0,
         error: '',
@@ -39,7 +36,6 @@ const userSlice = createSlice({
           state.loading = true;
         })
         .addCase(registerUser.fulfilled, (state) => {
-         
           state.errors = {
             statusCode: 200,
             error: '',
@@ -47,12 +43,15 @@ const userSlice = createSlice({
           }
           state.loading = false;
         })
-        .addCase(loginUser.fulfilled, (state) => {
+        .addCase(loginUser.fulfilled, (state, action) => {
           state.errors = {
             statusCode: 200,
             error: '',
             message: '',
           };
+          if(action.payload) {
+            state.token = action.payload;
+          }
           state.loading = false;
         })
         .addCase(registerUser.rejected, (state) => {

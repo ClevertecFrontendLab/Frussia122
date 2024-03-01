@@ -8,15 +8,17 @@ import {
   Nav,
   Title,
   NavItem,
-  Wrapper
+  Wrapper,
+  
 } from './styled';
-import { Links } from '../constants/Links';
-import { SidebarToggle } from '@features/SidebarToggle';
+
 import { Affix } from 'antd';
-import { Logout } from '@features/Logout';
+import { SidebarToggle } from '@features/buttons/sidebarToggle';
+import { Logout } from '@features/buttons/logout';
+import { Links } from '../constants/Links';
 
 export const SideBar: React.FC = () => {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   useEffect(() => {

@@ -1,16 +1,17 @@
-import { useEffect, useState } from 'react';
 import { Wrapper, Content } from './styled';
-import background from '../images/Main page_light.png'
 import { Col, Row } from 'antd';
-import { CardLayout } from '@shared/cardLayout';
 import { testData } from '../data/data';
 import { MainFooter } from '@widgets/footer';
+import { CardLayout } from '@shared/layouts/card';
+import { Header } from "@widgets/header";
+import background from '@pages/layouts/main/images/Main_page_light.png'
 
 export const MainPage: React.FC = () => {
-
+   
     return (
-        <>
-            <Wrapper backgroundImg={background}>
+        <>  
+            <Header title='Приветствуем тебя в CleverFit — приложении, которое поможет тебе добиться своей мечты!'/>
+            <Wrapper backgroundimg={background}>
                 <Content>
                     <Row>
                         <Col span={24}>
@@ -50,6 +51,8 @@ export const MainPage: React.FC = () => {
                 </Content>
                 <MainFooter />
             </Wrapper>
+            
+
         </>
     );
 };

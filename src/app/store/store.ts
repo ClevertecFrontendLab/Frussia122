@@ -1,7 +1,9 @@
-import { configureStore, applyMiddleware, combineReducers } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { createReduxHistoryContext } from "redux-first-history";
 import { createBrowserHistory } from 'history';
 import userReducer from './reducers/user';
+import feedbacksReducer from './reducers/feedbacks';
+
 import recoverReducer from './reducers/recovery';
 const {
     createReduxHistory,
@@ -17,6 +19,7 @@ export const store = configureStore({
         router: routerReducer,
         user: userReducer,
         recover: recoverReducer,
+        feedbacks: feedbacksReducer,
       }),
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(routerMiddleware),
 });

@@ -5,19 +5,16 @@ import {
 } from './styled';
 import { FormStateRec } from '../models/types';
 import {  useState } from 'react';
-import { ChangePassword } from '@app/store/actions/changePassword';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '@app/store/store';
-
+import { ChangePassword } from '@app/store/actions/api/changePassword';
+import { StageInputs } from '@features/inputs/recover/ui';
+import { Loader } from '@shared/components/loader';
 import useAuthRedirectEffect from '../hook';
-import { AUTH, CONFIRM_EMAIL } from '@shared/Constants/Routes/ROUTE';
-import { StageInputs } from '@features/StageInputs/ui';
-import { Loader } from '@shared/loader';
 
 export const Stage2 = () => {
   const dispatch = useDispatch<AppDispatch>();
   const location = useSelector((state: RootState) => state.router.previousLocations);
-  const currentLocation = useSelector((state: RootState) => state.router.location?.pathname);
   const loading = useSelector((state: RootState) => state.recover.loading);
 
   const [formState, setFormState] = useState<FormStateRec>({
@@ -28,7 +25,7 @@ export const Stage2 = () => {
 });
 
 
-useAuthRedirectEffect('/auth/change-password', `${AUTH}/${CONFIRM_EMAIL}`, '2', '/result/error-change-password', location, currentLocation);
+useAuthRedirectEffect('2', location);
 
 const fetchData = async (password: string, confirmPassword: string) => {
     await dispatch(ChangePassword({ password, confirmPassword }));
