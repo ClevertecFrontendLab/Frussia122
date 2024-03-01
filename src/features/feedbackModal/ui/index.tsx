@@ -1,7 +1,7 @@
 import { postFeedback } from "@app/store/actions/api/postFeedback";
 import { setMessage } from "@app/store/reducers/feedbacks";
 import { AppDispatch, RootState } from "@app/store/store";
-import { CustomRate } from "@shared/components/Rate";
+import { CustomRate } from "@shared/components/rate";
 
 import { useDispatch, useSelector } from "react-redux";
 import { Props } from "../models/types";

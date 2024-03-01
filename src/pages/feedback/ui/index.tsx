@@ -6,9 +6,9 @@ import { getFeedbacks } from "@app/store/actions/api/getFeedbacks";
 import { FeedbackFooter } from "@widgets/feedbackFooter";
 import { FeedbacksList } from "@widgets/feedbacksList";
 import { Wrapper } from "./styled";
-import background from '@pages/Layouts/Main/images/Main_page_light.png'
+import background from '@pages/layouts/main/images/Main_page_light.png'
 import { FeedbackEmpty } from "@widgets/feedbacksEmpty";
-import { Loader } from "@shared/components/Loader";
+import { Loader } from "@shared/components/loader";
 import { StatusModal } from '@widgets/statusModal';
 
 

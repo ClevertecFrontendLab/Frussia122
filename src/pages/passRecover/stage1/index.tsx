@@ -14,7 +14,7 @@ import {
 import useAuthRedirectEffect from "../hook";
 import { useState } from "react";
 import { codeVerification } from "@app/store/actions/api/codeVerification";
-import { Loader } from "@shared/components/Loader";
+import { Loader } from "@shared/components/loader";
 
 export const Stage1 = () => {
   const dispatch = useDispatch<AppDispatch>();

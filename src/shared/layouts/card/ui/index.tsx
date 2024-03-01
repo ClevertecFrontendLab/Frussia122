@@ -1,5 +1,6 @@
-import { CardWrapper, Header, Content, Footer, FooterItem, FooterItemText } from './styled';
+
 import { Props } from '../models/types';
+import { Header, Content, Footer, FooterItem, FooterItemText, CardWrapper } from './styled';
 
 export const CardLayout: React.FC<Props> = ({ data, customstyle }) => {
   const { header, content, footer, contentHtml } = data;
