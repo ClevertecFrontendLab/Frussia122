@@ -9,7 +9,7 @@ import { AppDispatch } from "@app/store/store";
 import { push } from "redux-first-history";
 import { AUTH, REGISTRATION } from '@shared/data/constants/routes/route';
 
-export const AuthType: React.FC<Props> = ({type}) => {
+export const AuthTabs: React.FC<Props> = ({type}) => {
 
   const dispatch = useDispatch<AppDispatch>();
 

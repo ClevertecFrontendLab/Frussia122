@@ -9,7 +9,7 @@ import logo from '@shared/images/logo/logo.svg'
 import { useSelector } from "react-redux";
 import { RootState } from "@app/store/store";
 import { Props } from "../models/types";
-import { AuthType } from "@features/authType";
+import { AuthTabs } from "@features/authTabs";
 
 export const AuthLayout:React.FC<Props> = ({type}) => {
   const location = useSelector((state: RootState) => state.router.location);
@@ -25,7 +25,7 @@ export const AuthLayout:React.FC<Props> = ({type}) => {
         {type === 'auth' ? (
           <>
           <Logo src={logo} />
-          <AuthType type={location ? location.pathname : ''}/>
+          <AuthTabs type={location ? location.pathname : ''}/>
           </>
         ) : null} 
         <Outlet />
