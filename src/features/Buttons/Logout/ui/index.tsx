@@ -7,7 +7,7 @@ import { Props } from '../models/types';
 import { push } from 'redux-first-history';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@app/store/store';
-import { AUTH } from '@shared/Data/Constants/Routes/ROUTE';
+import { AUTH } from '@shared/data/constants/routes/ROUTE';
 
 export const Logout: React.FC<Props> = ({
     collapsed,

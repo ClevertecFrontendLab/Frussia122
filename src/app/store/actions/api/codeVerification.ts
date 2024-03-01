@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { push } from 'redux-first-history';
 import axios from 'axios';
-import { CONFIRM_EMAIL_URL } from '@shared/Data/Constants/Api/API';
-import { AUTH, CHANGE_PASSWORD } from '@shared/Data/Constants/Routes/ROUTE';
+import { CONFIRM_EMAIL_URL } from '@shared/data/constants/api/API';
+import { AUTH, CHANGE_PASSWORD } from '@shared/data/constants/routes/ROUTE';
 import { CodeVerification } from '../models/types';
 
 export const codeVerification = createAsyncThunk<CodeVerification, { email: string; code: string }>(

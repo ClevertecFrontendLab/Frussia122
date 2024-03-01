@@ -1,10 +1,10 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { createReduxHistoryContext } from "redux-first-history";
 import { createBrowserHistory } from 'history';
-import userReducer from './Reducers/User';
-import feedbacksReducer from './Reducers/Feedbacks';
+import userReducer from './reducers/User';
+import feedbacksReducer from './reducers/Feedbacks';
 
-import recoverReducer from './Reducers/Recovery';
+import recoverReducer from './reducers/Recovery';
 const {
     createReduxHistory,
     routerMiddleware,

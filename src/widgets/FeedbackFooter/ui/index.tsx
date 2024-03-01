@@ -3,8 +3,8 @@ import {
     Wrapper,
     ShowAllComments,
 } from './styled';
-import { FeedbackModal } from '@features/FeedbackModal';
-import { CommentButton } from '@features/CommentButton';
+import { FeedbackModal } from '@features/feedbackModal';
+import { CommentButton } from '@features/commentButton';
 
 type Props = {
     isExpanded: boolean;

@@ -16,8 +16,8 @@
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
         "allowJs": true,
-        "forceConsistentCasingInFileNames": false,
         "baseUrl": ".",
+        "forceConsistentCasingInFileNames": false,
         "paths": {
             "@public/*": ["./public/*"],
             "@pages/*": ["./src/pages/*"],

@@ -4,8 +4,8 @@ import {
     ValidateText,
     RepeatPassValidate
 } from './styled';
-import { isValidEmail, validatePassword } from '@shared/Utils/validateSchema';
-import { FormStateReg } from '@pages/Registration/models/type';
+import { isValidEmail, validatePassword } from '@shared/utils/validateSchema';
+import { FormStateReg } from '@pages/registration/models/type';
 
 type Props = {
     formState: FormStateReg,

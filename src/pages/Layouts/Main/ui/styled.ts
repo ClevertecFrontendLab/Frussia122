@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Layout } from 'antd';
-import { StyleProps } from "../models/type";
 
 export const Wrapper = styled(Layout)`
     

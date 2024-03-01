@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { LOGIN_URL } from '@shared/Data/Constants/Api/API';
-import { HOMEPAGE, ERROR_LOGIN } from '@shared/Data/Constants/Routes/ROUTE';
+import { LOGIN_URL } from '@shared/data/constants/api/API';
+import { HOMEPAGE, ERROR_LOGIN } from '@shared/data/constants/routes/ROUTE';
 import axios from 'axios';
 
 import { push } from 'redux-first-history';

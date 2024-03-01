@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getFeedbacks } from "../Actions/api/getFeedbacks";
-import { postFeedback } from "../Actions/api/postFeedback";
+import { getFeedbacks } from "../actions/api/getFeedbacks";
+import { postFeedback } from "../actions/api/postFeedback";
 import { FeedBackState } from "./models/type";
 
 

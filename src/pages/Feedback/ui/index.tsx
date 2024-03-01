@@ -1,15 +1,15 @@
-import { Header } from "@widgets/Header";
+import { Header } from "@widgets/header";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@app/store/store";
-import { getFeedbacks } from "@app/Store/Actions/api/getFeedbacks";
-import { FeedbackFooter } from "@widgets/FeedbackFooter";
-import { FeedbacksList } from "@widgets/FeedbacksList";
+import { getFeedbacks } from "@app/store/actions/api/getFeedbacks";
+import { FeedbackFooter } from "@widgets/feedbackFooter";
+import { FeedbacksList } from "@widgets/feedbacksList";
 import { Wrapper } from "./styled";
 import background from '@pages/Layouts/Main/images/Main_page_light.png'
-import { FeedbackEmpty } from "@widgets/FeedbacksEmpty";
-import { Loader } from "@shared/Components/Loader";
-import { StatusModal } from '@widgets/StatusModal';
+import { FeedbackEmpty } from "@widgets/feedbacksEmpty";
+import { Loader } from "@shared/components/Loader";
+import { StatusModal } from '@widgets/statusModal';
 
 
 export const Feedback = () => {

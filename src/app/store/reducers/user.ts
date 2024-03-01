@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loginUser } from "../Actions/api/login";
-import { registerUser } from "../Actions/api/registration";
-import { UserState } from "../Actions/models/types";
+import { loginUser } from "../actions/api/login";
+import { registerUser } from "../actions/api/registration";
+import { UserState } from "../actions/models/types";
 
 
 const initialState: UserState = {

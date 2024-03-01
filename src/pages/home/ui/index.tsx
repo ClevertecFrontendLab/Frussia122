@@ -2,10 +2,9 @@ import { Wrapper, Content } from './styled';
 import { Col, Row } from 'antd';
 import { testData } from '../data/data';
 import { MainFooter } from '@widgets/footer';
-import { CardLayout } from '@shared/Layouts/Card';
-import { Header } from "@widgets/Header";
-import background from '@pages/Layouts/Main/images/Main_page_light.png'
-
+import { CardLayout } from '@shared/layouts/Card';
+import { Header } from "@widgets/header";
+import background from '@pages/layouts/main/images/Main_page_light.png'
 
 export const MainPage: React.FC = () => {
    

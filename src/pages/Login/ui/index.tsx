@@ -12,12 +12,12 @@ import {
   import { AppDispatch, RootState } from '@app/store/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { push } from 'redux-first-history';
-import { checkEMail } from '@app/store/Actions/api/checkEmail';
-import { loginUser } from '@app/store/Actions/api/login';
-import { LoginInputs } from '@features/Inputs/Login';
-import { Loader } from '@shared/Components/Loader';
-import { ERROR_LOGIN } from '@shared/Data/Constants/Routes/ROUTE';
-import { GOOGLE_AUTH_URL } from '@shared/Data/Constants/Api/API';
+import { checkEMail } from '@app/store/actions/api/checkEmail';
+import { loginUser } from '@app/store/actions/api/login';
+import { LoginInputs } from '@features/inputs/login';
+import { Loader } from '@shared/components/loader';
+import { ERROR_LOGIN } from '@shared/data/constants/routes/ROUTE';
+import { GOOGLE_AUTH_URL } from '@shared/data/constants/api/API';
 
 
 export interface FormStateLogin {

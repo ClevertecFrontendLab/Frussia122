@@ -1,4 +1,4 @@
-import { CustomRate } from "@shared/Components/Rate"
+import { CustomRate } from "@shared/components/rate"
 
 import { 
     Wrapper,

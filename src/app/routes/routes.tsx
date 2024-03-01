@@ -1,9 +1,12 @@
-import { MainPage } from "@pages/Home";
-import { AuthLayout } from "@pages/Layouts/Auth";
-import { AlertsLayout } from "@pages/Layouts/Status";
-import { Auth } from "@pages/Login";
-import { Stage1, Stage2 } from "@pages/PassRecover";
-import { Registration } from "@pages/Registration";
+
+import { Feedback } from "@pages/feedback";
+import { MainPage } from "@pages/home";
+import { AuthLayout } from "@pages/layouts/auth";
+import { Layout } from "@pages/layouts/main";
+import { AlertsLayout } from "@pages/layouts/status";
+import { Auth } from "@pages/login";
+import { Stage1, Stage2 } from "@pages/passRecover";
+import { Registration } from "@pages/registration";
 import { 
   HOMEPAGE, 
   AUTH, 
@@ -19,11 +22,10 @@ import {
   ERROR_CHANGE_PASSWORD, 
   SUCCESS_CHANGE_PASSWORD,
   FEEDBACK
-} from "@shared/Data/Constants/Routes/ROUTE";
-import { AlertsData } from "@shared/Data/StatusData/data";
-import { Layout } from "@pages/Layouts/Main";
+} from "@shared/data/constants/routes/ROUTE";
+import { AlertsData } from "@shared/data/statusData/data";
 import { Navigate, Routes, Route } from "react-router-dom";
-import { Feedback } from "@pages/Feedback";
+
 
 
 const routes = [

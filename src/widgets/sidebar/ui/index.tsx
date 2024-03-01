@@ -11,10 +11,11 @@ import {
   Wrapper,
   
 } from './styled';
-import { Links } from '../constants/Links';
+
 import { Affix } from 'antd';
-import { SidebarToggle } from '@features/Buttons/SidebarToggle';
-import { Logout } from '@features/Buttons/Logout';
+import { SidebarToggle } from '@features/buttons/sidebarToggle';
+import { Logout } from '@features/buttons/logout';
+import { Links } from '../constants/Links';
 
 export const SideBar: React.FC = () => {
   const [collapsed, setCollapsed] = useState(true);

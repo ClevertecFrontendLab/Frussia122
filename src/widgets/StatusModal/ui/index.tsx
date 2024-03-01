@@ -1,5 +1,5 @@
 import { AppDispatch } from "@app/store/store";
-import { HOMEPAGE } from "@shared/Data/Constants/Routes/ROUTE";
+import { HOMEPAGE } from "@shared/data/constants/routes/ROUTE";
 import { Modal, Result, Button } from "antd";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";

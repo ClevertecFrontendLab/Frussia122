@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { push } from 'redux-first-history';
 import axios from 'axios';
-import { CHANGE_PASSWORD_URL } from '@shared/Data/Constants/Api/API';
-import { SUCCESS_CHANGE_PASSWORD, ERROR_CHANGE_PASSWORD } from '@shared/Data/Constants/Routes/ROUTE';
+import { CHANGE_PASSWORD_URL } from '@shared/data/constants/api/API';
+import { SUCCESS_CHANGE_PASSWORD, ERROR_CHANGE_PASSWORD } from '@shared/data/constants/routes/ROUTE';
 import { ChangePasswordType } from '../models/types';
 
 

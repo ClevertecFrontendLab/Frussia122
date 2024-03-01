@@ -1,4 +1,4 @@
-import { SideBar } from "@widgets/Sidebar";
+import { SideBar } from "@widgets/sidebar";
 import { Outlet, Navigate, useLocation } from "react-router-dom";
 import { Wrapper, MainScreen } from "./styled";
 import { useEffect } from "react";
@@ -19,12 +19,10 @@ export const Layout = () => {
     }
   },[])
 
-  
 
   const isAuthenticated = localToken || sessionToken;
   return (
     <>
-     
      {isAuthenticated ?  
       <Wrapper >
         <SideBar />

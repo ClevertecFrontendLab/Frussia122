@@ -3,13 +3,13 @@ import {
     ReviewLink
 } from './styled';
 import { FooterCard } from '../cardData/data';
-import { CardLayout } from '@shared/Layouts/Card';
-import { AUTH, FEEDBACK } from '@shared/Data/Constants/Routes/ROUTE';
+import { CardLayout } from '@shared/layouts/card';
+import { AUTH, FEEDBACK } from '@shared/data/constants/routes/ROUTE';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '@app/store/store';
 import { push } from 'redux-first-history';
-import { getFeedbacks } from '@app/Store/Actions/api/getFeedbacks';
-import { clearErrors } from '@app/store/Reducers/Feedbacks';
+import { getFeedbacks } from '@app/store/actions/api/getFeedbacks';
+import { clearErrors } from '@app/store/reducers/Feedbacks';
 
 
 

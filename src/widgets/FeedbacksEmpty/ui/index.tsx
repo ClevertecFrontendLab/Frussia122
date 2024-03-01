@@ -1,5 +1,5 @@
-import { CommentButton } from "@features/CommentButton";
-import { FeedbackModal } from "@features/FeedbackModal";
+import { CommentButton } from "@features/commentButton";
+import { FeedbackModal } from "@features/feedbackModal";
 import { useState } from "react";
 import { InfoCard, Wrapper, Title, Description, Body } from "./styled";
 

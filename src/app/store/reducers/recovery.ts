@@ -1,8 +1,8 @@
 import { createSlice} from "@reduxjs/toolkit";
-import { checkEMail } from "../Actions/api/checkEmail";
+import { checkEMail } from "../actions/api/checkEmail";
 import { UserRecoverPass, errorType } from "../Actions/models/types";
-import { ChangePassword } from "../Actions/api/changePassword";
-import { codeVerification } from "../Actions/api/codeVerification";
+import { ChangePassword } from "../actions/api/changePassword";
+import { codeVerification } from "../actions/api/codeVerification";
 
 
 const initialState: UserRecoverPass = {

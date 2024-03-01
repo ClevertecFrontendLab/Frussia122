@@ -1,13 +1,13 @@
-import { postFeedback } from "@app/store/Actions/api/postFeedback";
-import { setMessage } from "@app/store/Reducers/Feedbacks";
+import { postFeedback } from "@app/store/actions/api/postFeedback";
+import { setMessage } from "@app/store/reducers/Feedbacks";
 import { AppDispatch, RootState } from "@app/store/store";
-import { CustomRate } from "@shared/Components/Rate";
+import { CustomRate } from "@shared/components/Rate";
 
 import { useDispatch, useSelector } from "react-redux";
 import { Props } from "../models/types";
 import { Blur, CommentButton, CommentModal, TextArea, ResultInfo } from "./styled";
 import { useState } from "react";
-import { getFeedbacks } from "@app/store/Actions/api/getFeedbacks";
+import { getFeedbacks } from "@app/store/actions/api/getFeedbacks";
 
 export const FeedbackModal: React.FC<Props> = ({setIsModalOpen, isModalOpen}) => {
     let timeoutId: any = null;

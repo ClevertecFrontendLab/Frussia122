@@ -7,9 +7,9 @@ import { FormStateRec } from '../models/types';
 import {  useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '@app/store/store';
-import { ChangePassword } from '@app/store/Actions/api/changePassword';
-import { StageInputs } from '@features/Inputs/Recover/ui';
-import { Loader } from '@shared/Components/Loader';
+import { ChangePassword } from '@app/store/actions/api/changePassword';
+import { StageInputs } from '@features/inputs/recover/ui';
+import { Loader } from '@shared/components/loader';
 import useAuthRedirectEffect from '../hook';
 
 export const Stage2 = () => {

@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '@app/store/store';
 import { FormStateReg } from '../models/type';
 import { RootState } from '@app/store/store';
-import { registerUser } from '@app/store/Actions/api/registration';
-import { RegistrationInputs } from '@features/Inputs/Registration';
-import { Loader } from '@shared/Components/Loader';
+import { registerUser } from '@app/store/actions/api/registration';
+import { RegistrationInputs } from '@features/inputs/registration';
+import { Loader } from '@shared/components/loader';
 
 
 export const Registration = () => {

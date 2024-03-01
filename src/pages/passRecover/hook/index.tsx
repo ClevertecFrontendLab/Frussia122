@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { push } from 'redux-first-history';
 import { AppDispatch } from '@app/store/store';
 import { Action, Location } from 'history';
-import { AUTH } from '@shared/Data/Constants/Routes/ROUTE';
+import { AUTH } from '@shared/data/constants/routes/ROUTE';
 
 interface LocationState {
   location?: Location | null | undefined;

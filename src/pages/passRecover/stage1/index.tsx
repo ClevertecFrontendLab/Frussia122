@@ -13,8 +13,8 @@ import {
 } from './styled';
 import useAuthRedirectEffect from "../hook";
 import { useState } from "react";
-import { codeVerification } from "@app/store/Actions/api/codeVerification";
-import { Loader } from "@shared/Components/Loader";
+import { codeVerification } from "@app/store/actions/api/codeVerification";
+import { Loader } from "@shared/components/Loader";
 
 export const Stage1 = () => {
   const dispatch = useDispatch<AppDispatch>();

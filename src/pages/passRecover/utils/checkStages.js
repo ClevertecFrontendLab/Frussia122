@@ -1,6 +1,6 @@
 
 import { push } from "redux-first-history";
-import { AUTH } from "@shared/Constants/Routes/ROUTE";
+import { AUTH } from "@shared/constants/routes/ROUTE";
 
 
 export const checkStages = (currentLocation, location, dispatch) => {

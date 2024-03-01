@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { GET_FEEDBACKS } from '@shared/Data/Constants/Api/API';
+import { GET_FEEDBACKS } from '@shared/data/constants/api/API';
 
 
 type Feedback = {

@@ -1,5 +1,5 @@
 
-import { Breadcrumbs } from '@features/Breadcrumb/ui'
+import { Breadcrumbs } from '@features/breadcrumb/ui'
 import {
     Wrapper,
     Content,

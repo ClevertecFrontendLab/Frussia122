@@ -1,4 +1,4 @@
-import { StyleProps } from "@pages/Layouts/Auth/models/types";
+import { StyleProps } from "@pages/layouts/auth/models/types";
 import { styled } from "styled-components";
 
 export const Wrapper = styled.div<StyleProps> `

@@ -5,7 +5,7 @@ import {
 } from './styled';
 import { StarTwoTone  } from '@ant-design/icons';
 import { AppDispatch } from '@app/store/store';
-import { setRating } from '@app/store/Reducers/Feedbacks';
+import { setRating } from '@app/store/reducers/feedbacks';
 
 
 export const CustomRate: React.FC<Props> = ({isDisabled, defaultValue}) => {

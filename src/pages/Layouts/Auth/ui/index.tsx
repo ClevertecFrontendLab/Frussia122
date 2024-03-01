@@ -6,7 +6,7 @@ import {
 } from './styled';
 import background from '../images/Enter page_light.jpg'
 import logo from '@shared/images/logo/logo.svg'
-import { AuthType } from '@features/AuthType';
+import { AuthType } from '@features/authType';
 import { useSelector } from "react-redux";
 import { RootState } from "@app/store/store";
 import { Props } from "../models/types";
