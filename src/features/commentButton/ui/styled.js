@@ -1,12 +1,13 @@
+import { colors, paddings } from "@shared/data/constants/styles/variables";
 import { Button } from "antd";
 import styled from "styled-components";
 
 export const Wrapper = styled(Button)`
-    border: 1px solid #2f54eb;
+    border: 1px solid ${colors.darkBlue};
     border-radius: 2px;
-    padding: 4px 15px;
+    padding: ${paddings.xxs} ${paddings.sm};
     box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.04);
-    background: #2f54eb;
-    color: white;
+    background: ${colors.darkBlue};
+    color: ${colors.white};
     height: 40px;
 `

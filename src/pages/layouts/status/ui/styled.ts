@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {StyleProps} from '../models/types'
+import { colors, fonts, margin, paddings } from "@shared/data/constants/styles/variables";
 
 
 export const Wrapper = styled.section<StyleProps>`
@@ -27,15 +28,15 @@ export const Wrapper = styled.section<StyleProps>`
 export const Card = styled.div`
     background: white;
     z-index: 2;
-    padding: 64px 82px;
+    padding: ${paddings.lg} ${paddings.xl};
     border-radius: 2px;
 
     @media screen and (max-width: 600px) {
-        padding: 64px 16px;
+        padding: ${paddings.lg} ${paddings.sm};
         max-width: 400px;
     }
     @media screen and (max-width: 400px) {
-        padding: 32px 16px;
+        padding: ${paddings.xmd} ${paddings.sm};
         max-width: 328px;
     }
 
@@ -53,19 +54,18 @@ export const Content = styled.div`
 `
 
 export const Title = styled.h2`
-    margin: 24px 0 0 0;
-    font: 500 24px / 130% "Inter", sans-serif;
-
+    margin: ${margin.sm} 0 0 0;
+    font: ${fonts.tabletTitle};
 `
 
 export const Description = styled.p`
-    font: 400 14px / 130% "Inter", sans-serif;
+    font: ${fonts.smallTitle};
     color: #8c8c8c;
-    margin: 0 24px 24px 24px;
+    margin: 0 ${margin.sm} ${margin.sm} ${margin.sm};
     max-width: 370px;
     text-align: center;
     @media screen and (max-width: 400px) {
-        margin: 6px 0 24px 0;
+        margin:${margin.xs} 0 ${margin.sm} 0;
     }
 
     
@@ -74,7 +74,7 @@ export const Description = styled.p`
 export const Button = styled.button`
     margin: 0;
     width: 100%;
-    background: #2f54eb;
+    background: ${colors.darkBlue};
     color: white;
     text-align: center;
     padding: 11px;

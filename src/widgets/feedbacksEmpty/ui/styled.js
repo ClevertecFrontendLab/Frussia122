@@ -1,3 +1,4 @@
+import { fonts, margin, paddings } from "@shared/data/constants/styles/variables";
 import { Card } from "antd";
 import styled from "styled-components";
 
@@ -16,7 +17,7 @@ export const Wrapper = styled.div`
 `
 
 export const Body = styled.div`
-    padding: 20px;
+    padding: ${paddings.xsm};
     height: 90%;
     
 `
@@ -24,15 +25,15 @@ export const InfoCard = styled(Card)`
     width: 100%;
     height: auto;
     display: flex;
-    padding: 56px 15px;
+    padding: 56px ${paddings.xxs};
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin-bottom: ${margin.sm};
 
     @media screen and (max-width: 600px) {
-       padding: 48px 32px;
-       margin-bottom: 48px;
+       padding: ${paddings.xxmd} ${paddings.xmd};
+       margin-bottom: ${margin.lg};
     }
     .ant-card-body{
         padding: 0;
@@ -46,10 +47,10 @@ export const Title = styled.h2`
 
 `
 export const Description = styled.p`
-    font: 400 14px / 130% "Inter", sans-serif;
+    font: ${fonts.smallTitle};
     text-align: center;
     color: #8c8c8c;
     max-width: 520px;
-    margin-top: 48px;
+    margin-top: ${margin.lg};
     
 `

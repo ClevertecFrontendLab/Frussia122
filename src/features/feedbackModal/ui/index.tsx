@@ -11,6 +11,7 @@ import { getFeedbacks } from "@app/store/actions/api/getFeedbacks";
 import { useAppDispatch, useAppSelector } from "@shared/hooks/store/redux";
 import { tokenSelector } from "@app/store/reducers/user";
 import { Success, Problem, Default } from "@widgets/feedbackResults";
+import { HTTP_STATUS } from "@shared/data/constants/http/status";
 
 export const FeedbackModal: React.FC<Props> = ({
   setIsModalOpen,
@@ -25,16 +26,16 @@ export const FeedbackModal: React.FC<Props> = ({
 
   const handleOk = () => {
     setIsModalOpen(false);
-    setMessageStatus(0);
+    setMessageStatus(HTTP_STATUS.DEFAULT);
   };
 
   const onSubmit = async () => {
     try {
       const response = await dispatch(postFeedback({ rating, message, token }));
       if (response.payload) {
-        setMessageStatus(400);
+        setMessageStatus(HTTP_STATUS.NOT_FOUND);
       } else {
-        setMessageStatus(200);
+        setMessageStatus(HTTP_STATUS.OK);
       }
     } catch (err: any) {
       throw new Error(err);
@@ -46,7 +47,7 @@ export const FeedbackModal: React.FC<Props> = ({
       await dispatch(getFeedbacks({ token }));
       handleOk();
     } else {
-      setMessageStatus(0);
+      setMessageStatus(HTTP_STATUS.DEFAULT);
     }
   };
 
@@ -72,9 +73,9 @@ export const FeedbackModal: React.FC<Props> = ({
               ]
         }
       >
-        {messageStatus === 0 && <Default rating={rating} message={message}/>}
-        {messageStatus === 200 && <Success statusHandle={statusHandle}/>}
-        {messageStatus === 400 && <Problem statusHandle={statusHandle}/>}
+        {messageStatus === HTTP_STATUS.DEFAULT && <Default rating={rating} message={message}/>}
+        {messageStatus === HTTP_STATUS.OK && <Success statusHandle={statusHandle}/>}
+        {messageStatus === HTTP_STATUS.NOT_FOUND && <Problem statusHandle={statusHandle}/>}
       </CommentModal>
     </Wrapper>
   );

@@ -1,31 +1,32 @@
 import { styled } from "styled-components";
 
 import { Button, Form, Input } from "antd";
+import { colors, fonts, margin, paddings } from "@shared/data/constants/styles/variables";
 
 export const Row = styled(Form.Item)`
     &:last-child{
         margin-bottom: 0;
     }
     &:nth-child(1) {
-        margin-bottom: 48px;
+        margin-bottom: ${margin.lg};
     }
  
     input{
-        border: 1px solid #d9d9d9;
+        border: 1px solid ${colors.silver};
         border-radius: 2px;
         padding: 5px 12px;
         margin-left: -1px;
         &::placeholder {
-            font: 400 14px / 130% "Inter", sans-serif;
-            color: #bfbfbf;
+            font: ${fonts.smallTitle};
+            color:${colors.silver};
         }
     }
     
     label{
-        border: 1px solid #d9d9d9;
+        border: 1px solid ${colors.silver};
         border-right: none;
         border-radius: 2px;
-        padding: 5px 12px;
+        padding: ${paddings.xxs} ${paddings.xs};
         height: 100%;
         background: #fafafa;
         &::after{
@@ -33,23 +34,22 @@ export const Row = styled(Form.Item)`
         }
     }
     .validate{
-         border: 1px solid red;
+         border: 1px solid ${colors.red};
     }
     .validateText{
-        color: red;
+        color: ${colors.red};
         opacity: 1;
-
         z-index: 2;
     }
 `;
 
 export const PassInput = styled(Input.Password)`
     height: 40px;
-    padding-left: 16px;
+    padding-left: ${paddings.sm};
 `;
 
 export const ValidateText = styled.span`
-    font: 400 12px / 130% "Inter", sans-serif;
+    font: ${fonts.extraSmallTitle};
     color: #8c8c8c;
     position: absolute;
     width: 100%;
@@ -61,7 +61,7 @@ export const ValidateText = styled.span`
 `;
 export const RepeatPassValidate = styled.span`
     opacity: 0;
-    font: 400 12px / 130% "Inter", sans-serif;
+    font: ${fonts.extraSmallTitle};
 `;
 
 export const SaveButton = styled(Button)`
@@ -69,12 +69,12 @@ export const SaveButton = styled(Button)`
     border-radius: 2px;
     padding: 6px 15px;
     box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.04);
-    background: #2f54eb;
-    color: white;
+    background: ${colors.darkBlue};
+    color: ${colors.white};
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 24px;
+    margin-top: ${margin.sm};
     margin-bottom: 0;
     height: 40px;
 `;

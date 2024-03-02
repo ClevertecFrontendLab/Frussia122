@@ -9,13 +9,14 @@ import {
   ERROR_CHECK_EMAIL_NO_EXIST,
 } from "@shared/data/constants/routes/route";
 import { CHECK_EMAIL } from "@shared/data/constants/api/api";
+import { setLoader } from "@app/store/reducers/loader";
+import { HTTP_STATUS } from "@shared/data/constants/http/status";
 
 export const checkEMail = createAsyncThunk<UserRecoverPass, { email: string }>(
   "recover/checkEMail",
   async ({ email }, { dispatch }) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 200));
-
+      dispatch(setLoader(true));
       const response = await axios.post(
         CHECK_EMAIL,
         { email },
@@ -27,13 +28,15 @@ export const checkEMail = createAsyncThunk<UserRecoverPass, { email: string }>(
       localStorage.removeItem("recoverError");
 
       dispatch(push(`${AUTH}/${CONFIRM_EMAIL}`));
+      dispatch(setLoader(false));
       return response.data;
     } catch (errors: any) {
       localStorage.setItem("email", email);
       const status = errors.response.status;
       const { message } = errors.response.data;
+      dispatch(setLoader(false));
 
-      if (status === 404 && message === "Email не найден") {
+      if (status === HTTP_STATUS.NOT_FOUND && message === "Email не найден") {
         dispatch(push(ERROR_CHECK_EMAIL_NO_EXIST));
       } else {
         localStorage.setItem("recoverError", "true");

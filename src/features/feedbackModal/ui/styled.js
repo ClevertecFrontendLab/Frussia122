@@ -1,14 +1,15 @@
 import styled from "styled-components";
 import { Button, Modal, Input, Result } from "antd";
+import { colors,fonts,paddings } from "@shared/data/constants/styles/variables";
 export const Wrapper = styled.div`
 
 `
 export const CommentButton = styled(Button)`
-    border: 1px solid #2f54eb;
+    border: 1px solid ${colors.darkBlue};
     border-radius: 2px;
-    padding: 4px 15px;
+    padding: ${paddings.xxs} ${paddings.sm};
     box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.04);
-    background: #2f54eb;
+    background: ${colors.darkBlue};
     color: white;
     height: 40px;
     width: 180px;
@@ -21,14 +22,14 @@ export const CommentButton = styled(Button)`
 export const CommentModal = styled(Modal)`
     z-index: 7;
     .ant-result-title{
-        font: 500 24px / 130% "Inter", sans-serif;
+        font: ${fonts.tabletTitle};
         line-height: 1.1; 
     }
     .ant-result-extra{
         ${CommentButton}:nth-child(2){
             background: transparent;
             color: black;
-            border: 1px solid #d9d9d9;
+            border: 1px solid ${colors.gray};
         }
     }
     @media screen and (max-width: 600px) {
@@ -53,7 +54,7 @@ export const Blur = styled.div`
 `;
 
 export const TextArea = styled(Input.TextArea)`
-    margin-top: 21px;
+    margin-top: ${paddings.xsm};
 `;
 
 export const ResultInfo = styled(Result)`

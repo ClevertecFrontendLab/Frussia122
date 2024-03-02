@@ -8,14 +8,16 @@ import { FeedbackEmpty } from "@widgets/feedbacksEmpty";
 import { Loader } from "@shared/components/loader";
 import { StatusModal } from "@widgets/statusModal";
 import { useAppDispatch, useAppSelector } from "@shared/hooks/store/redux";
-import { feedbacksSelector, loadingSelector, getErrorSelector } from "@app/store/reducers/feedbacks";
+import { feedbacksSelector, getErrorSelector } from "@app/store/reducers/feedbacks";
 import { tokenSelector } from "@app/store/reducers/user";
 import background from "@pages/layouts/main/images/Main_page_light.png";
+import { loaderSelector } from "@app/store/reducers/loader";
+import { HTTP_STATUS } from "@shared/data/constants/http/status";
 
 export const Feedback = () => {
   const dispatch = useAppDispatch();
   const feedbacksData = useAppSelector(feedbacksSelector);
-  const isLoading = useAppSelector(loadingSelector);
+  const isLoading = useAppSelector(loaderSelector);
   const error = useAppSelector(getErrorSelector);
   const token = useAppSelector(tokenSelector);
 
@@ -33,7 +35,7 @@ export const Feedback = () => {
     <>
       {isLoading && <Loader />}
       <Wrapper backgroundimg={background}>
-        {error === 500 ? <StatusModal /> : ""}
+        {error === HTTP_STATUS.INTERNAL_SERVER_ERROR ? <StatusModal /> : ""}
 
         <Header breadcrumb="Отзывы покупателей" />
         {feedbacksData.length > 0 ? (

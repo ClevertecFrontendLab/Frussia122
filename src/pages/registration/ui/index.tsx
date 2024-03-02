@@ -6,12 +6,12 @@ import { registerUser } from "@app/store/actions/api/registration";
 import { RegistrationInputs } from "@features/inputs/registration";
 import { Loader } from "@shared/components/loader";
 import { useAppDispatch, useAppSelector } from "@shared/hooks/store/redux";
-import { userLoadingSelector } from "@app/store/reducers/user";
+import { loaderSelector } from "@app/store/reducers/loader";
 
 export const Registration = () => {
   const dispatch = useAppDispatch();
   const location = useAppSelector(prevLocationSelector);
-  const loading = useAppSelector(userLoadingSelector);
+  const loading = useAppSelector(loaderSelector);
 
   const [formState, setFormState] = useState<FormStateReg>({
     email: "",

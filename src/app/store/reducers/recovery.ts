@@ -7,16 +7,9 @@ import { RootState } from "../store";
 
 const setErrorState = (state: UserRecoverPass, action: PayloadAction<any>) => {
   state.errors = action.payload as errorType;
-  state.loading = false;
   state.message = "";
 };
 
-const setFulfilledState = (
-  state: UserRecoverPass,
-) => {
-  state.errors = initialState.errors;
-  state.loading = false;
-};
 
 const initialState: UserRecoverPass = {
   email: "",
@@ -26,7 +19,6 @@ const initialState: UserRecoverPass = {
     message: "",
   },
   message: "",
-  loading: false,
 };
 
 const recoverSlice = createSlice({
@@ -39,28 +31,19 @@ const recoverSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(checkEMail.pending, (state) => {
-        state.loading = true;
-      })
-      .addCase(codeVerification.pending, (state) => {
-        state.loading = true;
-      })
-      .addCase(ChangePassword.pending, (state) => {
-        state.loading = true;
-      })
       .addCase(checkEMail.fulfilled, (state, action) => {
-        setFulfilledState(state);
+        state.errors = initialState.errors;
         state.email = action.payload.email;
         state.message = action.payload.message;
         sessionStorage.setItem("email", action.payload.email);
         sessionStorage.setItem("stage", "1");
       })
       .addCase(ChangePassword.fulfilled, (state, action) => {
-        setFulfilledState(state);
+        state.errors = initialState.errors;
         state.message = action.payload.message;
       })
       .addCase(codeVerification.fulfilled, (state, action) => {
-        setFulfilledState(state);
+        state.errors = initialState.errors;
         state.email = action.payload.email;
         sessionStorage.setItem("stage", "2");
       })
@@ -78,6 +61,5 @@ const recoverSlice = createSlice({
 
 export const { clearRecoveryErrors } = recoverSlice.actions;
 export const recoverStatusCodeSelector = (state: RootState) => state.recover.errors.statusCode;
-export const recoverLoadingSelector = (state: RootState) => state.recover.loading;
 
 export default recoverSlice.reducer;

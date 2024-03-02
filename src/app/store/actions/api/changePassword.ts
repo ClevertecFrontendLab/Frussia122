@@ -6,6 +6,7 @@ import {
   SUCCESS_CHANGE_PASSWORD,
 } from "@shared/data/constants/routes/route";
 import { ChangePasswordType } from "../models/types";
+import { setLoader } from "@app/store/reducers/loader";
 
 export const ChangePassword = createAsyncThunk<
   ChangePasswordType,
@@ -14,7 +15,7 @@ export const ChangePassword = createAsyncThunk<
   "recover/changePassword",
   async ({ password, confirmPassword }, { rejectWithValue, dispatch }) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 200));
+      dispatch(setLoader(true));
 
       const response = await axios.post(
         CHANGE_PASSWORD_URL,
@@ -24,10 +25,12 @@ export const ChangePassword = createAsyncThunk<
 
       localStorage.removeItem("recoverError");
       dispatch(push(SUCCESS_CHANGE_PASSWORD));
+      dispatch(setLoader(false));
       return response.data;
+      
     } catch (error: any) {
       localStorage.setItem("recoverError", "true");
-
+      dispatch(setLoader(false));
       return rejectWithValue(error.response.data);
     }
   }

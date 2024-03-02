@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Layout } from 'antd';
 import { CardWrapper } from "@shared/layouts/card";
+import { paddings,margin } from "@shared/data/constants/styles/variables";
 const { Footer } = Layout;
 
 export const Wrapper = styled(Footer)`
@@ -8,26 +9,25 @@ export const Wrapper = styled(Footer)`
     background: transparent;
     display: flex;
     width: 100%;
-    padding: 24px;
+    padding: ${paddings.md};
     align-items: flex-end;
     justify-content: space-between;
     
     @media screen and (max-width: 767px) {
         flex-direction: column;
-        padding: 0 24px;
-        margin-top: 20px;
+        padding: 0 ${paddings.md};
+        margin-top: ${margin.sm};
         justify-content: center;
         align-items: center;
         ${CardWrapper} {
             width: 100%;
-            margin: 10px 0 0 0  !important;
-
+            margin: ${paddings.xs} 0 0 0;
         }
     }
     
     @media screen and (max-width: 400px) {
         flex-direction: column;
-        padding: 0 10px;
+        padding: 0 ${paddings.xs};
     }
 
 `
@@ -36,6 +36,6 @@ export const ReviewLink = styled.span`
 
     @media screen and (max-width: 767px) {
         order: 2;
-        margin: 33px 0;
+        margin: ${margin.md} 0;
     }
 `;

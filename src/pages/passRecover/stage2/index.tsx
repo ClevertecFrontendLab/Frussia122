@@ -7,12 +7,12 @@ import { StageInputs } from "@features/inputs/recover/ui";
 import { Loader } from "@shared/components/loader";
 import useAuthRedirectEffect from "../hook";
 import { useAppDispatch, useAppSelector } from "@shared/hooks/store/redux";
-import { recoverLoadingSelector } from "@app/store/reducers/recovery";
+import { loaderSelector } from "@app/store/reducers/loader";
 
 export const Stage2 = () => {
   const dispatch = useAppDispatch();
   const location = useAppSelector(prevLocationSelector);
-  const loading = useAppSelector(recoverLoadingSelector);
+  const loading = useAppSelector(loaderSelector);
 
   const [formState, setFormState] = useState<FormStateRec>({
     password: "",

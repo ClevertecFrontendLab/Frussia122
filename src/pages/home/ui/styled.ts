@@ -1,4 +1,5 @@
 import { StyleProps } from "@pages/layouts/auth/models/types";
+import { margin } from "@shared/data/constants/styles/variables";
 import { styled } from "styled-components";
 
 export const Wrapper = styled.div<StyleProps> `
@@ -14,7 +15,7 @@ export const Wrapper = styled.div<StyleProps> `
 `  
 export const Content = styled.div`
     max-width: 752px;
-    margin: 24px;
+    margin: ${margin.sm};
     @media screen and (max-width: 400px) {
         margin: 10px 10px; 
     }

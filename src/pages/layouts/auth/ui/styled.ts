@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 import { StyleProps } from '../models/types'
+import { paddings } from '@shared/data/constants/styles/variables';
 
 export const Wrapper = styled.section<StyleProps>`
     background-image: url("${props => props.backgroundimg}");
@@ -25,18 +26,18 @@ export const Wrapper = styled.section<StyleProps>`
 export const Card = styled.div`
     width: 539px;
     background: white;
-    padding: 64px 85px;
+    padding: ${paddings.lg} ${paddings.xl};
     z-index: 2;
     display: flex;
     flex-direction: column;
     border-radius: 2px;
     @media screen and (max-width: 600px) {
         width: 400px;
-        padding: 32px 32px;
+        padding: ${paddings.xmd};
     }
     @media screen and (max-width: 400px) {
         width: 330px;
-        padding: 32px 16px;
+        padding: ${paddings.xmd} ${paddings.sm};
     }
 
 `

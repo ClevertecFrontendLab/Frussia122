@@ -13,13 +13,15 @@ import useAuthRedirectEffect from "../hook";
 import { useState } from "react";
 import { codeVerification } from "@app/store/actions/api/codeVerification";
 import { Loader } from "@shared/components/loader";
-import { recoverLoadingSelector, recoverStatusCodeSelector } from "@app/store/reducers/recovery";
+import { recoverStatusCodeSelector } from "@app/store/reducers/recovery";
 import { useAppDispatch, useAppSelector } from "@shared/hooks/store/redux";
+import { loaderSelector } from "@app/store/reducers/loader";
+import { HTTP_STATUS } from "@shared/data/constants/http/status";
 
 export const Stage1 = () => {
   const error = useAppSelector(recoverStatusCodeSelector);
   const location = useAppSelector(prevLocationSelector);
-  const loading = useAppSelector(recoverLoadingSelector);
+  const loading = useAppSelector(loaderSelector);
   const [verificationCode, setVerificationCode] = useState("");
   const email = localStorage.getItem("email");
   const dispatch = useAppDispatch();
@@ -38,10 +40,10 @@ export const Stage1 = () => {
   return (
     <>
       {loading && <Loader />}
-      <StyledVerificationInput className={error === 200 ? "" : "errorCode"}>
-        {error === 200 ? <Attention /> : <ErrorIcon />}
+      <StyledVerificationInput className={error === HTTP_STATUS.OK ? "" : "errorCode"}>
+        {error === HTTP_STATUS.OK ? <Attention /> : <ErrorIcon />}
         <Title>
-          {error === 200 ? (
+          {error === HTTP_STATUS.OK ? (
             <>
               Введите код <br /> для восстановления аккаунта
             </>

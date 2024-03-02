@@ -8,13 +8,15 @@ import {
   RESULT_ERROR,
 } from "@shared/data/constants/routes/route";
 import { UserState } from "../models/types";
+import { setLoader } from "@app/store/reducers/loader";
+import { HTTP_STATUS } from "@shared/data/constants/http/status";
 
 export const registerUser = createAsyncThunk<
   UserState,
   { email: string; password: string }
 >("user/register", async ({ email, password }, { dispatch }) => {
   try {
-    await new Promise((resolve) => setTimeout(resolve, 200));
+    dispatch(setLoader(true));
 
     const response = await axios.post(REGISTRATION_URL, { email, password });
     localStorage.removeItem("regError");
@@ -22,18 +24,19 @@ export const registerUser = createAsyncThunk<
     sessionStorage.removeItem("password");
 
     dispatch(push(SUCCESS));
+    dispatch(setLoader(false));
     return response.data;
   } catch (error: any) {
     const statusCode = error.response.status;
 
-    if (statusCode === 409) {
+    if (statusCode === HTTP_STATUS.CONFLICT) {
       localStorage.removeItem("regError");
       dispatch(push(ERROR_USER_EXIST));
     } else {
       localStorage.setItem("regError", "true");
       dispatch(push(RESULT_ERROR));
     }
-    
+    dispatch(setLoader(false));
     return error.response.data;
   }
 });

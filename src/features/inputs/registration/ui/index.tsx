@@ -23,7 +23,7 @@ export const RegistrationInputs: React.FC<Props> = ({
     } else if (name === "password") {
       isValid = validatePassword(value);
     } else if (name === "repeatPassword") {
-      isValid = value === formState.password ? true : false;
+      isValid = value === formState.password;
     }
 
     setFormState((prevState) => ({

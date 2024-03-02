@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { Card, Avatar } from 'antd';
+import { fonts, margin, paddings } from "@shared/data/constants/styles/variables";
 type Props = {
     isExpanded: boolean;
 }
@@ -7,7 +8,7 @@ type Props = {
 export const Wrapper = styled.div<Props>`
     height: ${(props) => props.isExpanded ? '80vh' : 'auto'};
 
-    margin: 0 20px;
+    margin: 0 ${margin.sm};
     padding-bottom: 0;
     padding-top: 0;
     
@@ -34,12 +35,12 @@ export const CardBody = styled(Card)`
     .ant-card-body{
         display: flex;
         align-items: center;
-        padding: 16px;
+        padding: ${paddings.sm};
     }
 
     border-radius: 5px;
-    margin-top: 20px;
-    padding-right: 16px;
+    margin-top: ${margin.sm};
+    padding-right: ${paddings.sm};
     @media screen and (max-width: 600px) {
         .ant-card-body{
            flex-direction: column;
@@ -78,30 +79,30 @@ export const UserIcon = styled(Avatar)`
 
 export const Name = styled.p`
     
-    font: 400 16px / 130% "Inter", sans-serif;
+    font: ${fonts.mobileTablet};
     color: #262626;
     text-align: center;
     margin-bottom: 0;
-    margin-top: 12px;
+    margin-top: ${margin.xxs};
     width: 120px;
 
     @media screen and (max-width: 600px) {
         width: 80px;
-        margin-left: 20px;
+        margin-left: ${margin.sm};
         text-align: left;
         margin-top: 0;
     }
 `
 
 export const Date = styled.span`
-    font: 400 12px / 130% "Inter", sans-serif;
+    font: ${fonts.extraSmallTitle};
     color: #bfbfbf;
-    margin-left: 16px;
+    margin-left: ${margin.xxs};
 `
 
 export const Description = styled.p`
-    margin-top: 12px;
-    font: 400 14px / 130% "Inter", sans-serif;
+    margin-top: ${margin.xs};
+    font: ${fonts.smallTitle};
     color: #8c8c8c;
     word-wrap: break-word;
     max-width: 100%;

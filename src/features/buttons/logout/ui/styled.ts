@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Props } from "../models/types";
+import { paddings,margin } from "@shared/data/constants/styles/variables";
 
 export const Wrapper = styled.div<Props>`
     position: absolute;
@@ -10,7 +11,7 @@ export const Wrapper = styled.div<Props>`
     align-items: center;
     justify-content: ${(props) => (props.collapsed ? "center" : "start")};
     width: 100%;
-    padding: 16px 13px 16px 13px;
+    padding: ${paddings.sm} ${paddings.xs} ${paddings.sm} ${paddings.xs};
 
     @media screen and (max-width: 600px) {
        left: ${(props) => (props.collapsed ? "-100px" : "0")};
@@ -18,5 +19,5 @@ export const Wrapper = styled.div<Props>`
     }
 `;
 export const Icon = styled.img`
-    margin-right: 25px;
+    margin-right: ${margin.sm};
 `;

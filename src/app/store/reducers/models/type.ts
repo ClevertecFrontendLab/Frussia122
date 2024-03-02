@@ -15,7 +15,6 @@ export type FeedbackError = {
 }
 export type FeedBackState = {
     feedbacks: Feedback[];
-    loading: boolean;
     currentFeedback: Feedback;
     errors: FeedbackError;
 }

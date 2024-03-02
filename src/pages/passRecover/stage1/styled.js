@@ -3,6 +3,7 @@ import {
     ExclamationCircleFilled,
     CloseCircleFilled
   } from '@ant-design/icons'
+import { colors, fonts, margin } from "@shared/data/constants/styles/variables";
 
 
 export const StyledVerificationInput = styled.div`
@@ -19,47 +20,47 @@ export const StyledVerificationInput = styled.div`
       border: 1px solid #d9d9d9;
       border-radius: 2px;
       background: transparent;
-      font: 400 14px / 130% "Inter", sans-serif;
-      color: white;
+      font: ${fonts.smallTitle};
+      color: ${colors.white};
     }
     .vi__character--filled{
-      color: #262626;
+      color: ${colors.lightBlack};
     }
     &.errorCode {
       .vi__character{
-          border: 1px solid red;
+          border: 1px solid ${colors.red};
         }
     }
 `;
 
 export const Attention = styled(ExclamationCircleFilled)`
-    color: #2f54eb;
+    color: ${colors.darkBlue};
     font-size: 70px;
 `
 
 export const Title = styled.h2`
-    font: 500 18px / 130% "Inter", sans-serif;
+    font: ${fonts.mobileTablet};
     color: #262626;
-    margin-top: 24px;
+    margin-top: ${margin.sm};
     @media screen and (max-width: 400px) {
       max-width: 250px;
   }
 
 `
 export const Description = styled.p`
-    font: 400 14px / 130% "Inter", sans-serif;
+    font: ${fonts.smallTitle};
     color: #8c8c8c;
     @media screen and (max-width: 400px) {
       max-width: 240px;
-      margin-bottom: 30px;
+      margin-bottom: ${margin.md};
    } 
 `
 
 export const Hint = styled.span`
-    font: 400 14px / 130% "Inter", sans-serif;
+    font: ${fonts.smallTitle};
     color: #8c8c8c;
     @media screen and (max-width: 400px) {
-      margin-top: 20px;
+      margin-top: ${margin.sm};
       max-width: 250px;
   }
 `

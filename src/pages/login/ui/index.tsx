@@ -18,8 +18,8 @@ import { Loader } from "@shared/components/loader";
 import { ERROR_LOGIN } from "@shared/data/constants/routes/route";
 import { GOOGLE_AUTH_URL } from "@shared/data/constants/api/api";
 import { useAppDispatch, useAppSelector } from "@shared/hooks/store/redux";
-import { recoverLoadingSelector } from "@app/store/reducers/recovery";
-import { userLoadingSelector, userStatusCodeSelector } from "@app/store/reducers/user";
+import { userStatusCodeSelector } from "@app/store/reducers/user";
+import { loaderSelector } from "@app/store/reducers/loader";
 
 export interface FormStateLogin {
   email: string;
@@ -28,8 +28,7 @@ export interface FormStateLogin {
   passwordValidate: boolean;
 }
 export const Auth = () => {
-  const loading = useAppSelector(recoverLoadingSelector);
-  const loading2 = useAppSelector(userLoadingSelector);
+  const isLoading = useAppSelector(loaderSelector);
   const ErrorStatusCode = useSelector(userStatusCodeSelector);
   const dispatch = useAppDispatch();
 
@@ -77,7 +76,7 @@ export const Auth = () => {
 
   return (
     <FBody onFinish={handleSubmit}>
-      {loading || loading2 && <Loader />}
+      {isLoading && <Loader />}
       <LoginInputs formState={formState} setFormState={setFormState} />
       <Buttons name="login">
         <CheckArea>

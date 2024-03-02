@@ -11,7 +11,6 @@ const initialState: UserState = {
     error: "",
     message: "",
   },
-  loading: false,
   checked: false,
 };
 
@@ -28,29 +27,17 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(registerUser.pending, (state) => {
-        state.loading = true;
-      })
-      .addCase(loginUser.pending, (state) => {
-        state.loading = true;
-      })
       .addCase(registerUser.fulfilled, (state) => {
         state.errors = initialState.errors;
-        state.loading = false;
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.errors = initialState.errors;
         if (typeof action.payload === "string") {
           state.token = action.payload;
         }
-        state.loading = false;
       })
-      .addCase(registerUser.rejected, (state) => {
-        state.loading = false;
-      })
-      .addCase(loginUser.rejected, (state) => {
+      .addCase(loginUser.rejected, () => {
         localStorage.removeItem("accessToken");
-        state.loading = false;
       });
   },
 });
@@ -59,6 +46,5 @@ export const { clearUserErrors, logout } = userSlice.actions;
 
 export const tokenSelector = (state: RootState) => state.user.token;
 export const userStatusCodeSelector = (state: RootState) => state.user.errors.statusCode;
-export const userLoadingSelector = (state: RootState) => state.user.loading;
 
 export default userSlice.reducer;
