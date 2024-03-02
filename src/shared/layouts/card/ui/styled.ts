@@ -10,21 +10,15 @@ export const CardWrapper = styled.div`
     padding: 24px 0 24px 0;
     align-items: center;
     border-radius: 2px;
-
-
     @media screen and (max-width: 800px) {
         margin: 10px 0 0 0;
-       
-       
     }
-
 `
 
 export const Header = styled.div<HeaderProps>`
     color: ${props => props.headercolor};
     font-size: ${props => props.headerfontsize}px;
     font-weight: ${props => props.headerfontweight};
-
     @media screen and (max-width: 834px) {
         padding: 0 24px;
     }
@@ -32,7 +26,6 @@ export const Header = styled.div<HeaderProps>`
 
 
 export const Content = styled.div<ContentProps>`
-    
     color: ${props => props.contentcolor};
     font-size: ${props => props.contentfontsize}px;
     font-weight: ${props => props.contentfontweight};
@@ -47,8 +40,6 @@ export const Footer = styled.ul`
     margin-top: 12px;
     justify-content: center;
     width: 100%;
-
-  
 `
 
 export const FooterItem = styled.li<FooterProps>`

@@ -1,53 +1,56 @@
 import { Header } from "@widgets/header";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "@app/store/store";
 import { getFeedbacks } from "@app/store/actions/api/getFeedbacks";
 import { FeedbackFooter } from "@widgets/feedbackFooter";
 import { FeedbacksList } from "@widgets/feedbacksList";
 import { Wrapper } from "./styled";
-import background from '@pages/layouts/main/images/Main_page_light.png'
 import { FeedbackEmpty } from "@widgets/feedbacksEmpty";
 import { Loader } from "@shared/components/loader";
-import { StatusModal } from '@widgets/statusModal';
-
+import { StatusModal } from "@widgets/statusModal";
+import { useAppDispatch, useAppSelector } from "@shared/hooks/store/redux";
+import { feedbacksSelector, loadingSelector, getErrorSelector } from "@app/store/reducers/feedbacks";
+import { tokenSelector } from "@app/store/reducers/user";
+import background from "@pages/layouts/main/images/Main_page_light.png";
 
 export const Feedback = () => {
-    const dispatch = useDispatch<AppDispatch>()
-    const feedbacksData = useSelector((state: RootState) => state.feedbacks.feedbacks)
-    const isLoading = useSelector((state: RootState) => state.feedbacks.loading)
-    const error = useSelector((state: RootState) => state.feedbacks.errors.getStatusCode)
-    const token = useSelector((state: RootState) => state.user.token);
-    
-    const [isExpanded, setIsExpanded] = useState(false);
+  const dispatch = useAppDispatch();
+  const feedbacksData = useAppSelector(feedbacksSelector);
+  const isLoading = useAppSelector(loadingSelector);
+  const error = useAppSelector(getErrorSelector);
+  const token = useAppSelector(tokenSelector);
 
-    useEffect(() => {
-        fetchFeedbacks();
-    }, []);
+  const [isExpanded, setIsExpanded] = useState(false);
 
-    const fetchFeedbacks = async () => {
-        console.log(token);
-        await dispatch(getFeedbacks({token}));
-    }
+  useEffect(() => {
+    fetchFeedbacks();
+  }, []);
 
+  const fetchFeedbacks = async () => {
+    await dispatch(getFeedbacks({ token }));
+  };
 
   return (
     <>
-      {isLoading ? <Loader/> : ''}
+      {isLoading && <Loader />}
       <Wrapper backgroundimg={background}>
-          {error === 500 ? <StatusModal /> : ''}
+        {error === 500 ? <StatusModal /> : ""}
 
-          <Header breadcrumb="Отзывы покупателей"/>
-          {feedbacksData.length > 0 ? 
+        <Header breadcrumb="Отзывы покупателей" />
+        {feedbacksData.length > 0 ? (
           <>
-          <FeedbacksList 
+            <FeedbacksList
               feedbacksData={feedbacksData}
               isExpanded={isExpanded}
-          /> 
-          <FeedbackFooter isExpanded={isExpanded} setIsExpanded={setIsExpanded}/>
+            />
+            <FeedbackFooter
+              isExpanded={isExpanded}
+              setIsExpanded={setIsExpanded}
+            />
           </>
-          : <FeedbackEmpty />}
+        ) : (
+          <FeedbackEmpty />
+        )}
       </Wrapper>
     </>
-  )
-}
+  );
+};

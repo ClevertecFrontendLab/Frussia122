@@ -7,7 +7,7 @@ export type Data = {
     footer?: DataFooter[];
 }
 export type DataFooter = {
+    text: string;
     id?: string;
     icon?: React.ReactNode;
-    text: string;
 }

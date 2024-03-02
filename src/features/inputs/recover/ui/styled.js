@@ -1,10 +1,8 @@
-import { styled } from 'styled-components';
+import { styled } from "styled-components";
 
-import { Button, Form, Input } from 'antd';
-
+import { Button, Form, Input } from "antd";
 
 export const Row = styled(Form.Item)`
-    
     &:last-child{
         margin-bottom: 0;
     }
@@ -43,32 +41,28 @@ export const Row = styled(Form.Item)`
 
         z-index: 2;
     }
-
-`
+`;
 
 export const PassInput = styled(Input.Password)`
-
     height: 40px;
     padding-left: 16px;
-
-`
+`;
 
 export const ValidateText = styled.span`
-font: 400 12px / 130% "Inter", sans-serif;
-color: #8c8c8c;
-position: absolute;
-width: 100%;
-bottom: -20px;
-left: 0;
-@media screen and (max-width: 600px) {
-   
-    bottom: -35px;
-}
-`
+    font: 400 12px / 130% "Inter", sans-serif;
+    color: #8c8c8c;
+    position: absolute;
+    width: 100%;
+    bottom: -20px;
+    left: 0;
+    @media screen and (max-width: 600px) {
+        bottom: -35px;
+    }
+`;
 export const RepeatPassValidate = styled.span`
     opacity: 0;
     font: 400 12px / 130% "Inter", sans-serif;
-`
+`;
 
 export const SaveButton = styled(Button)`
     width: 100%;
@@ -83,4 +77,4 @@ export const SaveButton = styled(Button)`
     margin-top: 24px;
     margin-bottom: 0;
     height: 40px;
-`
+`;

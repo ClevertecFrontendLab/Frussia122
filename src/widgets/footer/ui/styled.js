@@ -6,14 +6,12 @@ const { Footer } = Layout;
 export const Wrapper = styled(Footer)`
     background-color: transparent;
     background: transparent;
-    
     display: flex;
     width: 100%;
     padding: 24px;
     align-items: flex-end;
     justify-content: space-between;
-   
-
+    
     @media screen and (max-width: 767px) {
         flex-direction: column;
         padding: 0 24px;

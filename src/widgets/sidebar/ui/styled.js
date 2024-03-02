@@ -2,9 +2,6 @@ import styled from "styled-components";
 import { Layout, Menu } from 'antd';
 const { Sider } = Layout;
 
-
-
-
 export const Wrapper = styled.div`
     
 `
@@ -49,14 +46,11 @@ export const NavItem = styled(Menu.Item)`
         display: none;
     }
     padding: 0 !important;
-   
 }
-    
 `
 export const Title = styled.span`
 @media screen and (max-width: 600px) {
     margin: 0 !important;
-
 }
 `
 export const Logo = styled.img`

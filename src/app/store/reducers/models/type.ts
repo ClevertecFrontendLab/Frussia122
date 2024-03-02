@@ -1,8 +1,8 @@
 export type Feedback = {
-    fullName?: string;
-    imageSrc?: string;
     message: string;
     rating: number;
+    fullName?: string;
+    imageSrc?: string;
     id?: string;
     createdAt?: string;
 
@@ -14,8 +14,9 @@ export type FeedbackError = {
     message: string;
 }
 export type FeedBackState = {
-    feedbacks: Feedback[],
+    feedbacks: Feedback[];
     loading: boolean;
-    currentFeedback: Feedback
+    currentFeedback: Feedback;
     errors: FeedbackError;
 }
+

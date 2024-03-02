@@ -1,5 +1,5 @@
-import { Form, Button, Input } from 'antd';
-import { styled } from 'styled-components';
+import { Form, Button, Input } from "antd";
+import { styled } from "styled-components";
 export const Row = styled(Form.Item)`
     font: 400 14px / 130% "Inter", sans-serif;
     position: relative;
@@ -15,12 +15,10 @@ export const Row = styled(Form.Item)`
             margin-bottom: 52px;
         }
     }
-    
     .ant-input-password{
         height: 40px;
         padding-left: 16px;
     }
-    
     input{
         border: 1px solid #d9d9d9;
         border-radius: 2px;
@@ -46,14 +44,12 @@ export const Row = styled(Form.Item)`
         opacity: 1;
         z-index: 2;
     }
-`
-    export const FInput = styled(Input)`
-
+`;
+export const FInput = styled(Input)`
     height: 40px !important;
+`;
 
-`
-
-    export const ValidateText = styled.span`
+export const ValidateText = styled.span`
     font: 400 12px / 130% "Inter", sans-serif;
     color: #8c8c8c;
     position: absolute;
@@ -61,12 +57,11 @@ export const Row = styled(Form.Item)`
     bottom: -20px;
     left: 0;
     @media screen and (max-width: 600px) {
-       
         bottom: -35px;
     }
-    `
+    `;
 
-    export const RepeatPassValidate = styled.span`
+export const RepeatPassValidate = styled.span`
     opacity: 0;
     font: 400 12px / 130% "Inter", sans-serif;
-`
+`;

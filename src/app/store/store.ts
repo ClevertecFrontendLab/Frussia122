@@ -25,6 +25,9 @@ export const store = configureStore({
 });
 
 export const history = createReduxHistory(store);
+export const locationSelector = (state: RootState) => state.router.location;
+export const prevLocationSelector = (state: RootState) => state.router.previousLocations;
+export const router = (state: RootState) => state.router.location;
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;

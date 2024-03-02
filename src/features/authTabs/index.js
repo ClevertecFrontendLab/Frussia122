@@ -1,1 +1,1 @@
-export {AuthTabs} from './ui'
+export { AuthTabs } from './ui'

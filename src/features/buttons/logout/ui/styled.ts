@@ -8,15 +8,15 @@ export const Wrapper = styled.div<Props>`
     display: flex;
     cursor: pointer;
     align-items: center;
-    justify-content: ${props => props.collapsed ? 'center' : 'start'};
+    justify-content: ${(props) => (props.collapsed ? "center" : "start")};
     width: 100%;
     padding: 16px 13px 16px 13px;
 
     @media screen and (max-width: 600px) {
-       left: ${props => props.collapsed ? '-100px' : '0'};
+       left: ${(props) => (props.collapsed ? "-100px" : "0")};
     
     }
 `;
 export const Icon = styled.img`
     margin-right: 25px;
-`
+`;

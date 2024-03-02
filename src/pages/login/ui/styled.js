@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 import { Form, Button, Input, Checkbox  } from 'antd';
 import { Link } from 'react-router-dom';
+
 export const FBody = styled(Form)`
     margin-top: 32px;
 `
@@ -14,7 +15,6 @@ export const LogIn = styled(Button)`
     align-items: center;
     justify-content: center;
     height: 40px;
-
     &:hover{
         background: #85a5ff;
         color: white;
@@ -31,7 +31,6 @@ export const LogInWithGoogle = styled(Button)`
 
 export const Buttons = styled(Form.Item)`
     margin-top: 62px;
-
     @media screen and (max-width: 600px) {
         margin-bottom: 64px;
     }

@@ -1,8 +1,5 @@
-import { styled } from 'styled-components';
-import { Form, Input  } from 'antd';
-
-
-
+import { styled } from "styled-components";
+import { Form, Input } from "antd";
 
 export const Row = styled(Form.Item)`
     font: 400 14px / 130% "Inter", sans-serif;
@@ -44,8 +41,8 @@ export const Row = styled(Form.Item)`
    .ant-form-item-label{
         
    }
-`
+`;
 export const FInput = styled(Input)`
     height: 40px;
   
-`
+`;

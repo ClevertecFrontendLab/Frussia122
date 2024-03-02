@@ -10,9 +10,6 @@ export const Wrapper = styled(Footer)`
     padding: 24px;
     margin-top: 30px;
     align-items: center;
-    
-    
-
 `
 
 export const ShowAllComments = styled.span`
@@ -20,7 +17,6 @@ export const ShowAllComments = styled.span`
     font: 400 16px / 130% "Inter", sans-serif;
     color: #2f54eb;
     cursor: pointer;
-
     @media screen and (max-width: 600px) {
         font-size: 14px;
     }

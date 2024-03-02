@@ -16,7 +16,6 @@ export type CodeVerification = {
     code: string;
     errors:  errorType;
 }
-
 export type ChangePasswordType = {
     email: string;
     confirmPassword: string;

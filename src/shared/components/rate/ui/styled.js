@@ -3,15 +3,15 @@ import {  Rate } from 'antd';
 
 
 export const CommentRate = styled(Rate)`
-height: 30px;
+    height: 30px;
     svg{
-        width: 1.3em !important;
+        width: 1.3em ;
         margin-left: -6px;
     }
     [aria-checked="true"] {
         svg{
-            width: 1.3em !important;
-            height: 1.3em !important;
+           
+            height: 1.3em;
             path {
                 fill: #faad14;
 
@@ -24,7 +24,6 @@ height: 30px;
             }
         }
     }
-
     [aria-checked="false"] {
         svg{
     

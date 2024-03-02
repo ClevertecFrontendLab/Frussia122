@@ -2,8 +2,6 @@ import styled from "styled-components";
 import { Layout } from 'antd';
 
 export const Wrapper = styled(Layout)`
-    
-    
 
 `;
 
@@ -14,6 +12,4 @@ export const MainScreen = styled(Layout)`
     @media screen and (min-width: 700px) {
         justify-content: flex-start;
     }
-    
-
 `

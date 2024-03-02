@@ -1,4 +1,5 @@
-import { DataItem } from "@shared/alertsData/models/types";
+import { DataItem } from "@shared/data/statusData/models/types";
+
 
 export type StyleProps = {
     backgroundImg: string;

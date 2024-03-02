@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import {StyleProps} from '../models/types'
+import { StyleProps } from '../models/types'
 
 export const Wrapper = styled.section<StyleProps>`
     background-image: url("${props => props.backgroundimg}");
@@ -30,7 +30,6 @@ export const Card = styled.div`
     display: flex;
     flex-direction: column;
     border-radius: 2px;
-
     @media screen and (max-width: 600px) {
         width: 400px;
         padding: 32px 32px;
