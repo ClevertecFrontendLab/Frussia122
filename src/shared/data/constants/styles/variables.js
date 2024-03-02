@@ -8,10 +8,10 @@ export const colors = {
     red: 'red',
 }
 export const fonts = {
-    tabletTitle: 'font: 500 24px / 130% "Inter", sans-serif',
+    tabletTitle: '500 24px / 130% "Inter", sans-serif',
     extraSmallTitle: '400 12px / 130% "Inter", sans-serif',
-    smallTitle: 'font: 400 14px / 130% "Inter", sans-serif',
-    mobileTablet: 'font: 500 16px / 130% "Inter", sans-serif',
+    smallTitle: '400 14px / 130% "Inter", sans-serif',
+    mobileTablet: '500 16px / 130% "Inter", sans-serif',
     links: '400 16px / 130% "Inter", sans-serif',
 }
 export const paddings = {
@@ -28,7 +28,7 @@ export const paddings = {
 
 export const margin = {
     xs: '8px',
-    xxs: '16px',
+    xxs: '13px',
     sm: '24px',
     md: '32px',
     lg: '48px',

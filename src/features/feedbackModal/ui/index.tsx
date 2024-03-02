@@ -55,6 +55,7 @@ export const FeedbackModal: React.FC<Props> = ({
     <Wrapper>
       <CommentModal
         centered={true}
+        closable={messageStatus ? false : true }
         title={messageStatus ? null : "Ваш отзыв"}
         open={isModalOpen}
         onOk={handleOk}

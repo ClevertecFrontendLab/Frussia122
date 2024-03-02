@@ -34,7 +34,7 @@ export const Wrapper = styled.div<Props>`
 export const CardBody = styled(Card)`
     .ant-card-body{
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         padding: ${paddings.sm};
     }
 
@@ -79,12 +79,13 @@ export const UserIcon = styled(Avatar)`
 
 export const Name = styled.p`
     
-    font: ${fonts.mobileTablet};
+    font: ${fonts.smallTitle};
+    font-size: 16px;
     color: #262626;
     text-align: center;
     margin-bottom: 0;
     margin-top: ${margin.xxs};
-    width: 120px;
+    width: 100px;
 
     @media screen and (max-width: 600px) {
         width: 80px;

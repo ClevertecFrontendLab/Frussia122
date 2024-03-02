@@ -24,6 +24,7 @@ export const StatusModal: React.FC = () => {
       centered={true}
       open={isModalOpen}
       onOk={handleOk}
+      closable={false}
       onCancel={handleOk}
       footer={null}
     >
