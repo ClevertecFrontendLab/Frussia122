@@ -1,14 +1,12 @@
 export type UserState = {
-    userToken: string | userType;
+    token: string;
     errors: errorType;
-    loading: boolean;
     checked: boolean;
 }
 export type UserRecoverPass = {
     email: string;
     message: string;
     errors:  errorType;
-    loading: boolean;
 
 }
 export type CodeVerification = {
@@ -16,7 +14,6 @@ export type CodeVerification = {
     code: string;
     errors:  errorType;
 }
-
 export type ChangePasswordType = {
     email: string;
     confirmPassword: string;
@@ -29,6 +26,3 @@ export type errorType = {
     message: string,
 }
 
-export type userType = {
-    accessToken: string
-}

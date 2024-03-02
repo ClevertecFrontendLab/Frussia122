@@ -1,6 +1,3 @@
-export type StyleProps = {
-    backgroundImg: string;
-}
 
 export type Data = {
     id?: string;
@@ -10,7 +7,7 @@ export type Data = {
     footer?: DataFooter[];
 }
 export type DataFooter = {
+    text: string;
     id?: string;
     icon?: React.ReactNode;
-    text: string;
 }

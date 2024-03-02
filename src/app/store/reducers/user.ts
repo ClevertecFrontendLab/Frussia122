@@ -1,70 +1,50 @@
-import { createSlice} from "@reduxjs/toolkit";
-import { registerUser } from "../actions/registration";
-import { UserState, errorType } from "../actions/models/types";
-import { loginUser } from "../actions/login";
-import { ERROR_LOGIN, HOMEPAGE } from "@shared/Constants/Routes/ROUTE";
-import { history } from "../store";
+import { createSlice } from "@reduxjs/toolkit";
+import { loginUser } from "../actions/api/login";
+import { registerUser } from "../actions/api/registration";
+import { UserState } from "../actions/models/types";
+import { RootState } from "../store";
 
 const initialState: UserState = {
-  userToken: {
-    accessToken: '',
+  token: "",
+  errors: {
+    statusCode: 200,
+    error: "",
+    message: "",
   },
-    errors: {
-        statusCode: 0,
-        error: '',
-        message: '',
-    },
-    loading: false,
-    checked: false,
-}
+  checked: false,
+};
 
 const userSlice = createSlice({
-    name: 'user',
-    initialState: initialState,
-    reducers: {
-      clearUserErrors: (state) => {
-        state.errors = {
-          statusCode: 0,
-          error: "",
-          message: "",
-        };
-      },
+  name: "user",
+  initialState: initialState,
+  reducers: {
+    clearUserErrors: (state) => {
+      state.errors = initialState.errors;
     },
-    extraReducers: (builder) => {
-      builder
-        .addCase(registerUser.pending, (state) => {
-          state.loading = true;
-        })
-        .addCase(loginUser.pending, (state) => {
-          state.loading = true;
-        })
-        .addCase(registerUser.fulfilled, (state) => {
-         
-          state.errors = {
-            statusCode: 200,
-            error: '',
-            message: '',
-          }
-          state.loading = false;
-        })
-        .addCase(loginUser.fulfilled, (state) => {
-          state.errors = {
-            statusCode: 200,
-            error: '',
-            message: '',
-          };
-          state.loading = false;
-        })
-        .addCase(registerUser.rejected, (state) => {
-          
-            state.loading = false;
-        })
-        .addCase(loginUser.rejected, (state) => {
-          localStorage.removeItem('accessToken');  
-          state.loading = false;
-        });
+    logout: (state) => {
+      state.token = "";
     },
-  });
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(registerUser.fulfilled, (state) => {
+        state.errors = initialState.errors;
+      })
+      .addCase(loginUser.fulfilled, (state, action) => {
+        state.errors = initialState.errors;
+        if (typeof action.payload === "string") {
+          state.token = action.payload;
+        }
+      })
+      .addCase(loginUser.rejected, () => {
+        localStorage.removeItem("accessToken");
+      });
+  },
+});
 
-export const { clearUserErrors } = userSlice.actions;
+export const { clearUserErrors, logout } = userSlice.actions;
+
+export const tokenSelector = (state: RootState) => state.user.token;
+export const userStatusCodeSelector = (state: RootState) => state.user.errors.statusCode;
+
 export default userSlice.reducer;

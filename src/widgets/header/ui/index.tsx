@@ -1,28 +1,20 @@
+import { Wrapper, Content, HeaderTitle, Settings, Type } from "./styled";
+import { SettingOutlined } from "@ant-design/icons";
+import { Props } from "../models/type";
+import { Breadcrumb } from "@features/breadcrumbs";
+import React from "react";
 
-import { Breadcrumbs } from '@features/Breadcrumb/ui'
-import {
-    Wrapper,
-    Content,
-    HeaderTitle,
-    Settings,
-    Type
-} from './styled'
-import {
-    SettingOutlined 
-  } from '@ant-design/icons';
-export const Header = () => {
-  return (
+export const Header: React.FC<Props> = ({ title, breadcrumb }) => (
     <Wrapper>
-        <Breadcrumbs />
+      <Breadcrumb breadcrumb={breadcrumb} />
+      {title && (
         <Content>
-            <HeaderTitle>
-                 Приветствуем тебя в CleverFit — приложении, которое поможет тебе добиться своей мечты!
-            </HeaderTitle>
-            <Settings>
-                <SettingOutlined />
-                <Type>Настройки</Type>
-            </Settings>
+          <HeaderTitle>{title}</HeaderTitle>
+          <Settings>
+            <SettingOutlined />
+            <Type>Настройки</Type>
+          </Settings>
         </Content>
+      )}
     </Wrapper>
-  )
-}
+);

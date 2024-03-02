@@ -9,8 +9,8 @@ export const Wrapper = styled.section`
     padding: 16px 24px;
     display: flex;
     flex-direction: column;
-   
 `;
+
 export const Content = styled.div`
     display: flex;
     justify-content: space-between;
@@ -31,8 +31,6 @@ export const HeaderTitle = styled.h1`
         max-width: 280px;
         margin-top: 27px;
     }
-    
-    
 `
 
 export const Settings = styled.div`

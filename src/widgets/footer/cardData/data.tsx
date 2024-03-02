@@ -9,7 +9,7 @@ export const FooterCard: Data = {
     content: 'Доступно в PRO-тарифе',
     footer: [
         {
-            id: 'asdasd76',
+            id: 'asdasd7612',
             text: 'Android OS',
             icon: <AndroidFilled />
         },
